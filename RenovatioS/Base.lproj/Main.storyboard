@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="n41-4a-TqO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,28 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reveal View Controller-->
-        <scene sceneID="Qxz-ip-0DN">
-            <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="n41-4a-TqO" customClass="SWRevealViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kZA-8Z-V8t"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gig-QW-aYl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bJC-i5-cdx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <segue destination="43N-an-V9W" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="oKL-9n-XWj"/>
-                        <segue destination="6p5-Aw-lkT" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="fSg-H8-I3H"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lO7-Ye-EqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-862" y="-732"/>
-        </scene>
         <!--Table View Controller-->
         <scene sceneID="Bpl-lX-7wa">
             <objects>
@@ -536,6 +514,6 @@
         <image name="SutraMenuIcon" width="25" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fSg-H8-I3H"/>
+        <segue reference="ayx-Nc-pNK"/>
     </inferredMetricsTieBreakers>
 </document>

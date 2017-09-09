@@ -7,65 +7,119 @@
 //
 
 import Foundation
+import Material
 
 class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     var index:Int = 0
     var SutraNames:[String] = ["FrontPage", "Awake", "Becoming a Mirror", "Behaviour", "Believing in Ourselves", "Change", "Comfort Zone", "Complacency", "Creating in our Body", "Dead and Buried", "Earth", "Energy", "Experience and Essence", "Faith", "Feeding on our Pain", "Finding a Cure", "Finding Self Worth", "Fire", "Forgiveness", "Giving Your Heart", "Great Awareness", "Greatest Sacrifice", "Growing Your Insights", "Growing your Love", "Heart of God", "Higher Than Forgiveness", "How you are Now", "Iceberg","Inner Peace", "Inside Change", "Inside", "Keep Trying", "Liberation", "Life's Trials", "Limiting Yourself", "Living a Spiritual Life", "Meditation", "Moon and Stars", "Moving Closer to God", "Nail and Blame", "Offence", "Owning your Insights", "Parasite of Judgement", "Reality", "Relaxation", "Resistance", "Sacred Ground", "Stepping out in Faith", "Taking Responsibility","The Universe", "Water", "Who You are Being","Wind","Your Consciousness"]
 
-    var SutraPix = UIImageView()
+    var frontView = UIImageView()
+    var backView = UIView()
+    var titleLabel: UILabel = UILabel()
+    var textView: UILabel = UILabel()
+    private var showingBack = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareImageView()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.edgesForExtendedLayout = .top
+        prepareFrontView()
+        prepareBackView()
         prepareSwipeLeft()
+        prepareSwipeRight()
         prepareSwipeDown()
         prepareTap()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(pickerpix), name: Notification.Name("pickerused"), object: nil)
     }
+
+    // MARK: Prepare Methods
     
-    func prepareImageView() {
-        SutraPix = UIImageView(frame: view.frame)
-        view.addSubview(SutraPix)
-        let SutraName: String = SutraNames[index]
-        SutraPix.image = UIImage(named: SutraName)
+    func prepareFrontView() {
+        frontView = UIImageView(frame: view.frame)
+        frontView.contentMode = .scaleAspectFill
+        let sutraName: String = SutraNames[index]
+        frontView.image = UIImage(named: sutraName)
+        view.layout(frontView).left().right().top().bottom()
     }
     
+    func prepareBackView() {
+        backView = UIView(frame: view.frame)
+        backView.layout(titleLabel).top(20).height(40).left().right()
+        backView.layout(textView).top(80).left().right()
+    }
+    
+    func updateBackText() {
+        titleLabel.text = GlobalVariables.SutraNames[GlobalVariables.index]
+        textView.text = RSarray[GlobalVariables.index]
+    }
+
     func pickerpix () {
         // This is used on returning from the Picker PopOver to select the new Sutra Image
-        let SutraName:String = SutraNames[index]
-        SutraPix.image = UIImage(named: SutraName)
+        let sutraName: String = SutraNames[index]
+        frontView.image = UIImage(named: sutraName)
     }
     
-    
     func prepareSwipeLeft() {
-        let leftGesture = UIGestureRecognizer(target: self, action: #selector(leftGestureAction))
+        let leftGesture = UISwipeGestureRecognizer(target: self, action: #selector(leftSwipeAction))
+        leftGesture.direction = .left
         leftGesture.delegate = self
         view.addGestureRecognizer(leftGesture)
     }
     
-    func leftGestureAction() {
-        GlobalVariables.index = (GlobalVariables.index < GlobalVariables.SutraNames.count-1) ? GlobalVariables.index+1 : 0
-        let newSutraName:String = GlobalVariables.SutraNames[GlobalVariables.index]
-        let NewSutraPix = UIImage(named: newSutraName)!
-        
-        
-        UIView.transition(with: self.SutraPix,
-                          duration: 0.5,
-                          options: .transitionCrossDissolve,
-                          animations: { self.SutraPix.image = NewSutraPix},
-                          completion: nil)
+    func prepareSwipeRight() {
+        let rightGesture = UISwipeGestureRecognizer(target: self, action: #selector(RightSwipeAction))
+        rightGesture.direction = .right
+        rightGesture.delegate = self
+        view.addGestureRecognizer(rightGesture)
     }
     
     func prepareSwipeDown() {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownAction))
+        swipeDown.direction = .down
         swipeDown.delegate = self
         view.addGestureRecognizer(swipeDown)
     }
     
     func prepareTap() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(flipAction))
         tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    // MARK: Actions
+    
+    func leftSwipeAction() {
+        GlobalVariables.index = (GlobalVariables.index < GlobalVariables.SutraNames.count-1) ? GlobalVariables.index+1 : 0
+        print("LeftSwipe", GlobalVariables.index)
+        let newSutraName:String = GlobalVariables.SutraNames[GlobalVariables.index]
+        guard let NewSutraPix = UIImage(named: newSutraName) else {
+            assertionFailure("No Image Found")
+            return
+        }
+        
+        UIView.transition(with: self.frontView,
+                          duration: 0.5,
+                          options: .transitionCrossDissolve,
+                          animations: { self.frontView.image = NewSutraPix},
+                          completion: nil)
+    }
+    
+    func RightSwipeAction() {
+        
+        GlobalVariables.index = (GlobalVariables.index > 0) ? GlobalVariables.index-1 : GlobalVariables.SutraNames.count-1
+        print("RightSwipe", GlobalVariables.index)
+        let newSutraName = GlobalVariables.SutraNames[GlobalVariables.index]
+        guard let NewSutraPix = UIImage(named: newSutraName) else {
+            assertionFailure("No Image Found")
+            return
+        }
+        
+        UIView.transition(with: self.frontView,
+                          duration: 0.5,
+                          options: .transitionCrossDissolve,
+                          animations: { self.frontView.image = NewSutraPix},
+                          completion: nil)
     }
     
     func swipeDownAction() {
@@ -76,8 +130,14 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         popOverVC.didMove(toParentViewController: self)
     }
     
-    func tapAction() {
-        present(SutraTextVC(), animated: true, completion: nil)
+    func flipAction() {
+        updateBackText()
+        let toView = showingBack ? frontView : backView
+        let fromView = showingBack ? backView : frontView
+        let trasition = showingBack ? UIViewAnimationOptions.transitionFlipFromRight : UIViewAnimationOptions.transitionFlipFromLeft
+        UIView.transition(from: fromView, to: toView, duration: 0.5, options: trasition, completion: nil)
+        view.layout(toView).left().right().top().bottom()
+        showingBack = !showingBack
     }
 }
 
