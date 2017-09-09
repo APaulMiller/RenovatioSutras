@@ -17,46 +17,33 @@ class PickerVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         
         self.view.backgroundColor = UIColor.white.withAlphaComponent(0.9)
         self.showAnimate()
-
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int
-    {
+   
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        return ViewController.GlobalVariables.SutraNames[row]
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return GlobalVariables.SutraNames[row]
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
-    {
-        return ViewController.GlobalVariables.SutraNames.count
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return GlobalVariables.SutraNames.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        ViewController.GlobalVariables.index = row
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        GlobalVariables.index = row
     }
     
     
-    @IBAction func ReturnFromPopUp(_ sender: UITapGestureRecognizer)
-    {
+    @IBAction func ReturnFromPopUp(_ sender: UITapGestureRecognizer) {
         NotificationCenter.default.post(name: Notification.Name("pickerused"), object: self)
         self.removeAnimate()
     }
     
     
     
-    func showAnimate()
-    {
+    func showAnimate() {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.view.alpha = 0.0;
         UIView.animate(withDuration: 0.25, animations: {
@@ -65,8 +52,7 @@ class PickerVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         });
     }
     
-    func removeAnimate()
-    {
+    func removeAnimate() {
         UIView.animate(withDuration: 0.25, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             self.view.alpha = 0.0;
@@ -78,5 +64,4 @@ class PickerVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         });
     }   
     
-
 }

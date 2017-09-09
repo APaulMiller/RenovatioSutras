@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 var FrontPage:String =  "Acknowledgements"
 var Awake:String =  "Awake Text"
 var Behaviour:String =  "Behaviour Text"
@@ -72,32 +74,13 @@ var YourConsciousness:String =  "Your Consciousness Text"
 var RSarray = [FrontPage, Awake, BecomingaMirror, Behaviour, BelievinginOurselves, Change, ComfortZone, Complacency, CreatinginourBody, DeadandBuried, Earth, Energy, ExperienceandEssence, Faith, FeedingonourPain, FindingaCure, FindingSelfWorth, Fire, Forgiveness, GivingyourHeart, GreatAwareness, GreatestSacrifice, GrowingyourInsights, GrowingyourLove, HeartofGod,  HigherThanForgiveness ,  HowYouareNow ,  Iceberg , InnerPeace ,  InsideChange ,  Inside ,  KeepTrying ,  Liberation ,  LifesTrials ,  LimitingYourself ,  LivingaSpiritualLife ,  Meditation ,  MoonandStars ,  MovingclosertoGod ,  NailandBlame ,  Offence ,  OwningyourInsights ,  ParasiteofJudgement ,  Reality ,  Relaxation ,  Resistance ,  SacredGround ,  SteppingoutinFaith ,  TakingResponsibility , TheUniverse ,  Water ,  WhoYouareBeing , Wind , YourConsciousness ]
 
 class SutraTextVC: UIViewController {
-
-    
     @IBOutlet var SutraTitle: UILabel!
-    
     @IBOutlet var SutraText: UITextView!
-    
-    
-    @IBAction func TapToText(_ sender: UITapGestureRecognizer) {
-    }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SutraText.text = RSarray[ViewController.GlobalVariables.index]
-        SutraTitle.text = ViewController.GlobalVariables.SutraNames[ViewController.GlobalVariables.index]
-
-        // Do any additional setup after loading the view.
+        SutraText.text = RSarray[GlobalVariables.index]
+        SutraTitle.text = GlobalVariables.SutraNames[GlobalVariables.index]
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-
 }
