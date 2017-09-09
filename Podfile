@@ -4,5 +4,6 @@ target 'RenovatioS' do
   use_frameworks!
   pod 'Material'
   pod 'Firebase'
-
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
 end

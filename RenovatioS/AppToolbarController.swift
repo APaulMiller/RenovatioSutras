@@ -48,6 +48,11 @@ extension AppToolbarController {
     }
     
     @objc
+    fileprivate func set(title: String) {
+        toolbar.title = title
+    }
+    
+    @objc
     func showRightView() {
         navigationDrawerController?.toggleRightView()
     }

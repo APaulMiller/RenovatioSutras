@@ -12,7 +12,7 @@ import Material
 
 class SoundsViewController: UIViewController {
     private var player: AVAudioPlayer = AVAudioPlayer()
-    private var playButton = Button()
+    private var playButton = FlatButton()
     private var albumArt = UIImageView()
     private var albumTitle = UILabel()
     
@@ -27,11 +27,15 @@ class SoundsViewController: UIViewController {
         albumArt = UIImageView(image: #imageLiteral(resourceName: "MFIP Album Cover"))
         view.layout(albumArt).top(30).left(15).width(view.width/3).height(view.width/3)
         albumTitle.text = "Breath Meditation"
+        albumTitle.numberOfLines = 0
+        view.layout(albumTitle).top(40).left(view.width/3 + 30).right(10)
     }
     
     func preparePlayButton(){
-        playButton = Button(image: #imageLiteral(resourceName: "cm_pause_white"))
-        playButton.setImage(#imageLiteral(resourceName: "cm_play_white"), for: .selected)
+        playButton = FlatButton(title: "Play", titleColor: main)
+        playButton.setTitle("Pause", for: .selected)
+        playButton.setTitle("Play", for: .normal)
+        view.layout(playButton).top(view.width/3).left(view.width/3 + 30).right(15)
     }
     
     func playAction() {

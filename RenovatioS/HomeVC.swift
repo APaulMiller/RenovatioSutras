@@ -10,13 +10,11 @@ import Foundation
 import Material
 
 class HomeVC: UIViewController, UIGestureRecognizerDelegate {
-    var index:Int = 0
-    var SutraNames:[String] = ["FrontPage", "Awake", "Becoming a Mirror", "Behaviour", "Believing in Ourselves", "Change", "Comfort Zone", "Complacency", "Creating in our Body", "Dead and Buried", "Earth", "Energy", "Experience and Essence", "Faith", "Feeding on our Pain", "Finding a Cure", "Finding Self Worth", "Fire", "Forgiveness", "Giving Your Heart", "Great Awareness", "Greatest Sacrifice", "Growing Your Insights", "Growing your Love", "Heart of God", "Higher Than Forgiveness", "How you are Now", "Iceberg","Inner Peace", "Inside Change", "Inside", "Keep Trying", "Liberation", "Life's Trials", "Limiting Yourself", "Living a Spiritual Life", "Meditation", "Moon and Stars", "Moving Closer to God", "Nail and Blame", "Offence", "Owning your Insights", "Parasite of Judgement", "Reality", "Relaxation", "Resistance", "Sacred Ground", "Stepping out in Faith", "Taking Responsibility","The Universe", "Water", "Who You are Being","Wind","Your Consciousness"]
-
     var frontView = UIImageView()
     var backView = UIView()
     var titleLabel: UILabel = UILabel()
     var textView: UILabel = UILabel()
+    private let dataBaseManager = DatabaseManager.shared
     private var showingBack = false
     
     override func viewDidLoad() {
@@ -28,6 +26,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         prepareSwipeLeft()
         prepareSwipeRight()
         prepareSwipeDown()
+        prepareSwipeUp()
         prepareTap()
         
         NotificationCenter.default.addObserver(self, selector: #selector(pickerpix), name: Notification.Name("pickerused"), object: nil)
@@ -38,7 +37,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     func prepareFrontView() {
         frontView = UIImageView(frame: view.frame)
         frontView.contentMode = .scaleAspectFill
-        let sutraName: String = SutraNames[index]
+        let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]
         frontView.image = UIImage(named: sutraName)
         view.layout(frontView).left().right().top().bottom()
     }
@@ -56,7 +55,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
 
     func pickerpix () {
         // This is used on returning from the Picker PopOver to select the new Sutra Image
-        let sutraName: String = SutraNames[index]
+        let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]
         frontView.image = UIImage(named: sutraName)
     }
     
@@ -81,6 +80,13 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         view.addGestureRecognizer(swipeDown)
     }
     
+    func prepareSwipeUp() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeUPAction))
+        swipeUp.direction = .up
+        swipeUp.delegate = self
+        view.addGestureRecognizer(swipeUp)
+    }
+    
     func prepareTap() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(flipAction))
         tapGesture.delegate = self
@@ -91,7 +97,6 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     func leftSwipeAction() {
         GlobalVariables.index = (GlobalVariables.index < GlobalVariables.SutraNames.count-1) ? GlobalVariables.index+1 : 0
-        print("LeftSwipe", GlobalVariables.index)
         let newSutraName:String = GlobalVariables.SutraNames[GlobalVariables.index]
         guard let NewSutraPix = UIImage(named: newSutraName) else {
             assertionFailure("No Image Found")
@@ -108,7 +113,6 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     func RightSwipeAction() {
         
         GlobalVariables.index = (GlobalVariables.index > 0) ? GlobalVariables.index-1 : GlobalVariables.SutraNames.count-1
-        print("RightSwipe", GlobalVariables.index)
         let newSutraName = GlobalVariables.SutraNames[GlobalVariables.index]
         guard let NewSutraPix = UIImage(named: newSutraName) else {
             assertionFailure("No Image Found")
@@ -128,6 +132,13 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
+    }
+    
+    func swipeUPAction() {
+        let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]
+        let sutra = SutraObject(title: GlobalVariables.SutraNames[GlobalVariables.index], detailText: RSarray[GlobalVariables.index], image: UIImage(named: sutraName))
+        dataBaseManager?.save(sutra: sutra)
+        print("Saved: ", sutra.title)
     }
     
     func flipAction() {
