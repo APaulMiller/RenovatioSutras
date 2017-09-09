@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		377006AD1F6347550052C7DD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AC1F6347550052C7DD /* Style.swift */; };
 		377006AF1F63479C0052C7DD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AE1F63479C0052C7DD /* UIColor.swift */; };
-		377006B11F634BD20052C7DD /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B01F634BD20052C7DD /* LeftViewController.swift */; };
+		377006B11F634BD20052C7DD /* LeftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B01F634BD20052C7DD /* LeftMenu.swift */; };
 		377006B31F634DD80052C7DD /* AppToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B21F634DD80052C7DD /* AppToolbarController.swift */; };
 		377006B51F6355640052C7DD /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B41F6355640052C7DD /* HomeVC.swift */; };
 		DA16643F1EE9124D006A1D4C /* Menu3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16643E1EE9124D006A1D4C /* Menu3VC.swift */; };
@@ -17,7 +17,7 @@
 		DA2C04541EEBEC0400CDB5E6 /* Breath RM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */; };
 		DA97FB9D1EE9B82F009D75B6 /* Menu4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97FB9C1EE9B82F009D75B6 /* Menu4VC.swift */; };
 		DAE04E4F1EE87DC5006A345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */; };
-		DAE04E511EE87DC5006A345B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E501EE87DC5006A345B /* HomeViewController.swift */; };
+		DAE04E511EE87DC5006A345B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E501EE87DC5006A345B /* ViewController.swift */; };
 		DAE04E541EE87DC5006A345B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E521EE87DC5006A345B /* Main.storyboard */; };
 		DAE04E561EE87DC5006A345B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E551EE87DC5006A345B /* Assets.xcassets */; };
 		DAE04E591EE87DC5006A345B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E571EE87DC5006A345B /* LaunchScreen.storyboard */; };
@@ -31,7 +31,7 @@
 		372A52EB20D7693C1166B42E /* Pods_RenovatioS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenovatioS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		377006AC1F6347550052C7DD /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		377006AE1F63479C0052C7DD /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		377006B01F634BD20052C7DD /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		377006B01F634BD20052C7DD /* LeftMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenu.swift; sourceTree = "<group>"; };
 		377006B21F634DD80052C7DD /* AppToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToolbarController.swift; sourceTree = "<group>"; };
 		377006B41F6355640052C7DD /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B150453A93B03B6D7F4DA474 /* Pods-RenovatioS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovatioS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RenovatioS/Pods-RenovatioS.release.xcconfig"; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		DA97FB9C1EE9B82F009D75B6 /* Menu4VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu4VC.swift; sourceTree = "<group>"; };
 		DAE04E4B1EE87DC5006A345B /* RenovatioS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenovatioS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DAE04E501EE87DC5006A345B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DAE04E501EE87DC5006A345B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DAE04E531EE87DC5006A345B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAE04E551EE87DC5006A345B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAE04E581EE87DC5006A345B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -114,12 +114,12 @@
 			isa = PBXGroup;
 			children = (
 				DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */,
-				DAE04E501EE87DC5006A345B /* HomeViewController.swift */,
+				DAE04E501EE87DC5006A345B /* ViewController.swift */,
 				377006B41F6355640052C7DD /* HomeVC.swift */,
 				DAE04E521EE87DC5006A345B /* Main.storyboard */,
 				DA97FB9C1EE9B82F009D75B6 /* Menu4VC.swift */,
 				377006B21F634DD80052C7DD /* AppToolbarController.swift */,
-				377006B01F634BD20052C7DD /* LeftViewController.swift */,
+				377006B01F634BD20052C7DD /* LeftMenu.swift */,
 				DA1664401EE92E4D006A1D4C /* PickerVC.swift */,
 				377006AB1F6347430052C7DD /* Utilities */,
 				DA16643E1EE9124D006A1D4C /* Menu3VC.swift */,
@@ -267,9 +267,9 @@
 				DA1664411EE92E4D006A1D4C /* PickerVC.swift in Sources */,
 				DA97FB9D1EE9B82F009D75B6 /* Menu4VC.swift in Sources */,
 				377006B51F6355640052C7DD /* HomeVC.swift in Sources */,
-				DAE04E511EE87DC5006A345B /* HomeViewController.swift in Sources */,
+				DAE04E511EE87DC5006A345B /* ViewController.swift in Sources */,
 				DAE04E4F1EE87DC5006A345B /* AppDelegate.swift in Sources */,
-				377006B11F634BD20052C7DD /* LeftViewController.swift in Sources */,
+				377006B11F634BD20052C7DD /* LeftMenu.swift in Sources */,
 				DAE04E611EE885B8006A345B /* SutraTextVC.swift in Sources */,
 				DAE04E651EE89E8C006A345B /* SWRevealViewController.m in Sources */,
 				377006AD1F6347550052C7DD /* Style.swift in Sources */,

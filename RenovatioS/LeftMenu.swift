@@ -1,5 +1,5 @@
 //
-//  LeftViewController.swift
+//  LeftMenu.swift
 //  RenovatioS
 //
 //  Created by Dan Leonard on 9/8/17.
@@ -9,7 +9,7 @@
 import Foundation
 import Material
 
-class LeftViewController: UIViewController {
+class LeftMenu: UIViewController {
     fileprivate var homeButton: FlatButton!
     fileprivate var foldingButton: FlatButton!
     fileprivate var meditationButton: FlatButton!
@@ -25,7 +25,7 @@ class LeftViewController: UIViewController {
     }
 }
 
-extension LeftViewController {
+extension LeftMenu {
     
     fileprivate func prepareHomeButton() {
         homeButton = FlatButton(title: "Home", titleColor: .white)
@@ -53,7 +53,7 @@ extension LeftViewController {
         logoutButton = FlatButton(title: "Acknowledgments", titleColor: .white)
         logoutButton.pulseColor = .white
         logoutButton.addTarget(self, action: #selector(acknowledgmentsAction), for: .touchUpInside)
-        view.layout(logoutButton).horizontally().centerVertically(offset: -60).height(60)
+        view.layout(logoutButton).horizontally().centerVertically(offset: 60).height(60)
     }
     
     func furtherInfoAction() {

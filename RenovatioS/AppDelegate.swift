@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         let appToolbarController = AppToolbarController(rootViewController: HomeVC())
-        let leftViewController = LeftViewController()
-        let nav = NavigationDrawerController(rootViewController: appToolbarController, leftViewController: leftViewController)
+        let leftMenu = LeftMenu()
+        let nav = NavigationDrawerController(rootViewController: appToolbarController, leftViewController: leftMenu)
         window!.rootViewController = nav
         window!.makeKeyAndVisible()
         return true

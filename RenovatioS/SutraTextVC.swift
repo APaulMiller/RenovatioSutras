@@ -74,13 +74,35 @@ var YourConsciousness:String =  "Your Consciousness Text"
 var RSarray = [FrontPage, Awake, BecomingaMirror, Behaviour, BelievinginOurselves, Change, ComfortZone, Complacency, CreatinginourBody, DeadandBuried, Earth, Energy, ExperienceandEssence, Faith, FeedingonourPain, FindingaCure, FindingSelfWorth, Fire, Forgiveness, GivingyourHeart, GreatAwareness, GreatestSacrifice, GrowingyourInsights, GrowingyourLove, HeartofGod,  HigherThanForgiveness ,  HowYouareNow ,  Iceberg , InnerPeace ,  InsideChange ,  Inside ,  KeepTrying ,  Liberation ,  LifesTrials ,  LimitingYourself ,  LivingaSpiritualLife ,  Meditation ,  MoonandStars ,  MovingclosertoGod ,  NailandBlame ,  Offence ,  OwningyourInsights ,  ParasiteofJudgement ,  Reality ,  Relaxation ,  Resistance ,  SacredGround ,  SteppingoutinFaith ,  TakingResponsibility , TheUniverse ,  Water ,  WhoYouareBeing , Wind , YourConsciousness ]
 
 class SutraTextVC: UIViewController {
-    @IBOutlet var SutraTitle: UILabel!
-    @IBOutlet var SutraText: UITextView!
+    
+    //var titleLabel: UILabel = UILabel()
+    var textView: UITextView = UITextView()
+    
+    convenience init() {
+        self.init(nibName: nil, bundle: Bundle.main)
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        SutraText.text = RSarray[GlobalVariables.index]
-        SutraTitle.text = GlobalVariables.SutraNames[GlobalVariables.index]
+        prpareTitle()
+        prepareTextView()
+    }
+    
+    func prepareTextView() {
+        view.layout(textView).top(40).left().right().bottom()
+        textView.text = RSarray[GlobalVariables.index]
+    }
+    
+    func prpareTitle() {
+        navigationController?.title = GlobalVariables.SutraNames[GlobalVariables.index]
+        //titleLabel.text = GlobalVariables.SutraNames[GlobalVariables.index]
     }
 }
