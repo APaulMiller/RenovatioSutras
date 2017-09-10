@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37386ED41F64BA6A00EE0DBA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37386ED31F64BA6A00EE0DBA /* String.swift */; };
 		377006AD1F6347550052C7DD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AC1F6347550052C7DD /* Style.swift */; };
 		377006AF1F63479C0052C7DD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AE1F63479C0052C7DD /* UIColor.swift */; };
 		377006B11F634BD20052C7DD /* LeftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B01F634BD20052C7DD /* LeftMenu.swift */; };
@@ -14,25 +15,24 @@
 		377006B51F6355640052C7DD /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B41F6355640052C7DD /* HomeVC.swift */; };
 		377006B91F6486860052C7DD /* SoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B81F6486860052C7DD /* SoundsViewController.swift */; };
 		377006BB1F6493670052C7DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 377006BA1F6493670052C7DD /* GoogleService-Info.plist */; };
-		377006BD1F6495C70052C7DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006BC1F6495C70052C7DD /* ViewController.swift */; };
+		377006BD1F6495C70052C7DD /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006BC1F6495C70052C7DD /* GlobalVariables.swift */; };
 		377006BF1F64965C0052C7DD /* SutraObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006BE1F64965C0052C7DD /* SutraObject.swift */; };
 		377006C11F6496A00052C7DD /* AudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006C01F6496A00052C7DD /* AudioObject.swift */; };
 		377006C51F6499650052C7DD /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006C41F6499650052C7DD /* DatabaseManager.swift */; };
 		DA16643F1EE9124D006A1D4C /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16643E1EE9124D006A1D4C /* MoreInfo.swift */; };
 		DA1664411EE92E4D006A1D4C /* PickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1664401EE92E4D006A1D4C /* PickerVC.swift */; };
 		DA2C04541EEBEC0400CDB5E6 /* Breath RM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */; };
-		DA97FB9D1EE9B82F009D75B6 /* Menu4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97FB9C1EE9B82F009D75B6 /* Menu4VC.swift */; };
 		DAE04E4F1EE87DC5006A345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */; };
 		DAE04E541EE87DC5006A345B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E521EE87DC5006A345B /* Main.storyboard */; };
 		DAE04E561EE87DC5006A345B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E551EE87DC5006A345B /* Assets.xcassets */; };
 		DAE04E591EE87DC5006A345B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E571EE87DC5006A345B /* LaunchScreen.storyboard */; };
 		DAE04E611EE885B8006A345B /* SutraTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E601EE885B8006A345B /* SutraTextVC.swift */; };
-		DAE04E651EE89E8C006A345B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E641EE89E8C006A345B /* SWRevealViewController.m */; };
 		FB4DC9F5DC18F2C56B2C7AD9 /* Pods_RenovatioS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372A52EB20D7693C1166B42E /* Pods_RenovatioS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		372A52EB20D7693C1166B42E /* Pods_RenovatioS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenovatioS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37386ED31F64BA6A00EE0DBA /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		377006AC1F6347550052C7DD /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		377006AE1F63479C0052C7DD /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		377006B01F634BD20052C7DD /* LeftMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenu.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		377006B41F6355640052C7DD /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		377006B81F6486860052C7DD /* SoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsViewController.swift; sourceTree = "<group>"; };
 		377006BA1F6493670052C7DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		377006BC1F6495C70052C7DD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		377006BC1F6495C70052C7DD /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		377006BE1F64965C0052C7DD /* SutraObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SutraObject.swift; sourceTree = "<group>"; };
 		377006C01F6496A00052C7DD /* AudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioObject.swift; sourceTree = "<group>"; };
 		377006C41F6499650052C7DD /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -49,7 +49,6 @@
 		DA16643E1EE9124D006A1D4C /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
 		DA1664401EE92E4D006A1D4C /* PickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerVC.swift; sourceTree = "<group>"; };
 		DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Breath RM.mp3"; sourceTree = "<group>"; };
-		DA97FB9C1EE9B82F009D75B6 /* Menu4VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu4VC.swift; sourceTree = "<group>"; };
 		DAE04E4B1EE87DC5006A345B /* RenovatioS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenovatioS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE04E531EE87DC5006A345B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,9 +56,6 @@
 		DAE04E581EE87DC5006A345B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAE04E5A1EE87DC5006A345B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAE04E601EE885B8006A345B /* SutraTextVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SutraTextVC.swift; sourceTree = "<group>"; };
-		DAE04E621EE89E8B006A345B /* RenovatioS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RenovatioS-Bridging-Header.h"; sourceTree = "<group>"; };
-		DAE04E631EE89E8C006A345B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		DAE04E641EE89E8C006A345B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +92,7 @@
 			children = (
 				377006AC1F6347550052C7DD /* Style.swift */,
 				377006AE1F63479C0052C7DD /* UIColor.swift */,
+				37386ED31F64BA6A00EE0DBA /* String.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -124,8 +121,7 @@
 				DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */,
 				377006B41F6355640052C7DD /* HomeVC.swift */,
 				DAE04E521EE87DC5006A345B /* Main.storyboard */,
-				DA97FB9C1EE9B82F009D75B6 /* Menu4VC.swift */,
-				377006BC1F6495C70052C7DD /* ViewController.swift */,
+				377006BC1F6495C70052C7DD /* GlobalVariables.swift */,
 				377006C41F6499650052C7DD /* DatabaseManager.swift */,
 				377006BE1F64965C0052C7DD /* SutraObject.swift */,
 				377006C01F6496A00052C7DD /* AudioObject.swift */,
@@ -136,14 +132,11 @@
 				DA16643E1EE9124D006A1D4C /* MoreInfo.swift */,
 				377006B81F6486860052C7DD /* SoundsViewController.swift */,
 				DAE04E601EE885B8006A345B /* SutraTextVC.swift */,
-				DAE04E631EE89E8C006A345B /* SWRevealViewController.h */,
-				DAE04E641EE89E8C006A345B /* SWRevealViewController.m */,
 				DAE04E551EE87DC5006A345B /* Assets.xcassets */,
 				DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */,
 				DAE04E571EE87DC5006A345B /* LaunchScreen.storyboard */,
 				DAE04E5A1EE87DC5006A345B /* Info.plist */,
 				377006BA1F6493670052C7DD /* GoogleService-Info.plist */,
-				DAE04E621EE89E8B006A345B /* RenovatioS-Bridging-Header.h */,
 			);
 			path = RenovatioS;
 			sourceTree = "<group>";
@@ -278,17 +271,16 @@
 				377006C11F6496A00052C7DD /* AudioObject.swift in Sources */,
 				377006B31F634DD80052C7DD /* AppToolbarController.swift in Sources */,
 				DA1664411EE92E4D006A1D4C /* PickerVC.swift in Sources */,
-				DA97FB9D1EE9B82F009D75B6 /* Menu4VC.swift in Sources */,
 				377006C51F6499650052C7DD /* DatabaseManager.swift in Sources */,
 				377006B51F6355640052C7DD /* HomeVC.swift in Sources */,
 				377006BF1F64965C0052C7DD /* SutraObject.swift in Sources */,
 				DAE04E4F1EE87DC5006A345B /* AppDelegate.swift in Sources */,
 				377006B11F634BD20052C7DD /* LeftMenu.swift in Sources */,
 				DAE04E611EE885B8006A345B /* SutraTextVC.swift in Sources */,
-				DAE04E651EE89E8C006A345B /* SWRevealViewController.m in Sources */,
-				377006BD1F6495C70052C7DD /* ViewController.swift in Sources */,
+				377006BD1F6495C70052C7DD /* GlobalVariables.swift in Sources */,
 				377006AD1F6347550052C7DD /* Style.swift in Sources */,
 				DA16643F1EE9124D006A1D4C /* MoreInfo.swift in Sources */,
+				37386ED41F64BA6A00EE0DBA /* String.swift in Sources */,
 				377006B91F6486860052C7DD /* SoundsViewController.swift in Sources */,
 				377006AF1F63479C0052C7DD /* UIColor.swift in Sources */,
 			);
@@ -337,6 +329,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -362,6 +355,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -387,6 +381,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -404,6 +399,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -420,7 +416,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TPOYP.RenovatioS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RenovatioS/RenovatioS-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -437,7 +433,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TPOYP.RenovatioS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RenovatioS/RenovatioS-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

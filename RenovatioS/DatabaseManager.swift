@@ -8,6 +8,7 @@
 
 import FirebaseDatabase
 import FirebaseStorage
+import UIKit
 
 class DatabaseManager: NSObject {
     var ref: DatabaseReference!

@@ -19,8 +19,6 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.edgesForExtendedLayout = .top
         prepareFrontView()
         prepareBackView()
         prepareSwipeLeft()
@@ -44,15 +42,22 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     func prepareBackView() {
         backView = UIView(frame: view.frame)
-        backView.layout(titleLabel).top(20).height(40).left().right()
-        backView.layout(textView).top(80).left().right()
+        titleLabel.textAlignment = .center
+        titleLabel.font = RobotoFont.regular(with: 22)
+        textView.numberOfLines = 0
+        backView.layout(titleLabel).top(22).height(40).centerHorizontally()
+        backView.layout(textView).top(80).left(10).right(10)
     }
     
     func updateBackText() {
         titleLabel.text = GlobalVariables.SutraNames[GlobalVariables.index]
-        textView.text = RSarray[GlobalVariables.index]
+        textView.attributedText = RSarray[GlobalVariables.index].HTMLTooAttributedString
     }
-
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     func pickerpix () {
         // This is used on returning from the Picker PopOver to select the new Sutra Image
         let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]

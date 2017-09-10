@@ -57,7 +57,7 @@ extension LeftMenu {
     }
     
     func furtherInfoAction() {
-        
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: MoreInfo(), completion: closeNavigationDrawer)
     }
     
     func meditationAction() {

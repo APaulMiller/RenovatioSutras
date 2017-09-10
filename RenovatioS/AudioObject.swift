@@ -6,6 +6,8 @@
 //  Copyright © 2017 TPOYP. All rights reserved.
 //
 
+import UIKit
+
 struct AudioObject {
     let title: String
     let audioFile: String

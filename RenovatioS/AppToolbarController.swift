@@ -14,9 +14,14 @@ class AppToolbarController: ToolbarController {
     
     override func prepare() {
         super.prepare()
+        displayStyle = .full
         prepareMenuButton()
         prepareStatusBar()
         prepareToolbar()
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 
@@ -30,12 +35,12 @@ extension AppToolbarController {
     
     fileprivate func prepareStatusBar() {
         // Access the statusBar.
-        statusBar.backgroundColor = main
+        statusBar.backgroundColor = UIColor.clear
     }
     
     func prepareToolbar() {
-        toolbar.leftViews = [menuButton]
-        toolbar.backgroundColor = main
+        toolbar.leftViews = [menuButton]    
+        toolbar.backgroundColor = UIColor.clear
         toolbar.titleLabel.textColor = .white
         toolbar.detailLabel.textColor = .white
     }

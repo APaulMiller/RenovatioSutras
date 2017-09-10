@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import Material
 
 class MoreInfo: UIViewController {
     
@@ -27,7 +28,7 @@ class MoreInfo: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.layout(TPOYPwebpage).left().right().top().bottom()
         let url = URL(string: "http://thepowerofyourperceptions.com")
         TPOYPwebpage.load(URLRequest(url: url!))
     }

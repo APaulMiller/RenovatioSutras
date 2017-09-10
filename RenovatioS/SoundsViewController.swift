@@ -25,17 +25,20 @@ class SoundsViewController: UIViewController {
 
     func prepareView() {
         albumArt = UIImageView(image: #imageLiteral(resourceName: "MFIP Album Cover"))
-        view.layout(albumArt).top(30).left(15).width(view.width/3).height(view.width/3)
+        view.layout(albumArt).top(60).left(15).width(view.width/3).height(view.width/3)
         albumTitle.text = "Breath Meditation"
         albumTitle.numberOfLines = 0
-        view.layout(albumTitle).top(40).left(view.width/3 + 30).right(10)
+        albumTitle.textAlignment = .center
+        view.layout(albumTitle).top(70).left(view.width/3 + 25).right(10)
     }
     
     func preparePlayButton(){
         playButton = FlatButton(title: "Play", titleColor: main)
         playButton.setTitle("Pause", for: .selected)
         playButton.setTitle("Play", for: .normal)
-        view.layout(playButton).top(view.width/3).left(view.width/3 + 30).right(15)
+        playButton.pulseColor = main
+        view.layout(playButton).top(view.width/3).left(view.width/3 + 25).right(10).height(30)
+        playButton.addTarget(playButton, action: #selector(playAction), for: .touchUpInside)
     }
     
     func playAction() {

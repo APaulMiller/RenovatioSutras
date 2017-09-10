@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension UIColor {
     class func colorWithRGB(_ rgbValue: UInt, alpha: CGFloat = 1.0) -> UIColor {

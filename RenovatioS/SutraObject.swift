@@ -6,6 +6,7 @@
 //  Copyright © 2017 TPOYP. All rights reserved.
 //
 
+import UIKit
 struct SutraObject {
     let title: String
     let detailText: String?
