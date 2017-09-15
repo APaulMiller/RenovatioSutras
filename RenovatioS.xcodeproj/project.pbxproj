@@ -14,7 +14,6 @@
 		377006B31F634DD80052C7DD /* AppToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B21F634DD80052C7DD /* AppToolbarController.swift */; };
 		377006B51F6355640052C7DD /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B41F6355640052C7DD /* HomeVC.swift */; };
 		377006B91F6486860052C7DD /* SoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B81F6486860052C7DD /* SoundsViewController.swift */; };
-		377006BB1F6493670052C7DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 377006BA1F6493670052C7DD /* GoogleService-Info.plist */; };
 		377006BD1F6495C70052C7DD /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006BC1F6495C70052C7DD /* GlobalVariables.swift */; };
 		377006BF1F64965C0052C7DD /* SutraObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006BE1F64965C0052C7DD /* SutraObject.swift */; };
 		377006C11F6496A00052C7DD /* AudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006C01F6496A00052C7DD /* AudioObject.swift */; };
@@ -22,6 +21,7 @@
 		DA16643F1EE9124D006A1D4C /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16643E1EE9124D006A1D4C /* MoreInfo.swift */; };
 		DA1664411EE92E4D006A1D4C /* PickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1664401EE92E4D006A1D4C /* PickerVC.swift */; };
 		DA2C04541EEBEC0400CDB5E6 /* Breath RM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */; };
+		DAC4E9B91F6C742C00461FD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC4E9B81F6C742C00461FD3 /* GoogleService-Info.plist */; };
 		DAE04E4F1EE87DC5006A345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */; };
 		DAE04E541EE87DC5006A345B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E521EE87DC5006A345B /* Main.storyboard */; };
 		DAE04E561EE87DC5006A345B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E551EE87DC5006A345B /* Assets.xcassets */; };
@@ -39,7 +39,6 @@
 		377006B21F634DD80052C7DD /* AppToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToolbarController.swift; sourceTree = "<group>"; };
 		377006B41F6355640052C7DD /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		377006B81F6486860052C7DD /* SoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsViewController.swift; sourceTree = "<group>"; };
-		377006BA1F6493670052C7DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		377006BC1F6495C70052C7DD /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		377006BE1F64965C0052C7DD /* SutraObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SutraObject.swift; sourceTree = "<group>"; };
 		377006C01F6496A00052C7DD /* AudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioObject.swift; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		DA16643E1EE9124D006A1D4C /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
 		DA1664401EE92E4D006A1D4C /* PickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerVC.swift; sourceTree = "<group>"; };
 		DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Breath RM.mp3"; sourceTree = "<group>"; };
+		DAC4E9B81F6C742C00461FD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DAE04E4B1EE87DC5006A345B /* RenovatioS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenovatioS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE04E531EE87DC5006A345B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */,
 				DAE04E571EE87DC5006A345B /* LaunchScreen.storyboard */,
 				DAE04E5A1EE87DC5006A345B /* Info.plist */,
-				377006BA1F6493670052C7DD /* GoogleService-Info.plist */,
+				DAC4E9B81F6C742C00461FD3 /* GoogleService-Info.plist */,
 			);
 			path = RenovatioS;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 				TargetAttributes = {
 					DAE04E4A1EE87DC5006A345B = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = H9KX8WA9HF;
+						DevelopmentTeam = M8KJHPW4HY;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -207,9 +207,9 @@
 			files = (
 				DA2C04541EEBEC0400CDB5E6 /* Breath RM.mp3 in Resources */,
 				DAE04E591EE87DC5006A345B /* LaunchScreen.storyboard in Resources */,
-				377006BB1F6493670052C7DD /* GoogleService-Info.plist in Resources */,
 				DAE04E561EE87DC5006A345B /* Assets.xcassets in Resources */,
 				DAE04E541EE87DC5006A345B /* Main.storyboard in Resources */,
+				DAC4E9B91F6C742C00461FD3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = H9KX8WA9HF;
+				DEVELOPMENT_TEAM = M8KJHPW4HY;
 				INFOPLIST_FILE = RenovatioS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TPOYP.RenovatioS;
@@ -428,7 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = H9KX8WA9HF;
+				DEVELOPMENT_TEAM = M8KJHPW4HY;
 				INFOPLIST_FILE = RenovatioS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TPOYP.RenovatioS;
