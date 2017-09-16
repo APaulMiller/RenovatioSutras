@@ -10,7 +10,7 @@ import Foundation
 import Material
 
 class LeftMenu: UIViewController {
-    fileprivate var homeButton: FlatButton!
+    fileprivate var sutraButton: FlatButton!
     fileprivate var foldingButton: FlatButton!
     fileprivate var meditationButton: FlatButton!
     fileprivate var logoutButton: FlatButton!
@@ -18,7 +18,7 @@ class LeftMenu: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = main
-        prepareHomeButton()
+        prepareSutraButton()
         prepareMeditationButton()
         prepareFurtherInfoButton()
         prepareAcknowledgmentsButton()
@@ -27,11 +27,11 @@ class LeftMenu: UIViewController {
 
 extension LeftMenu {
     
-    fileprivate func prepareHomeButton() {
-        homeButton = FlatButton(title: "Home", titleColor: .white)
-        homeButton.pulseColor = .white
-        homeButton.addTarget(self, action: #selector(homeAction), for: .touchUpInside)
-        view.layout(homeButton).horizontally().centerVertically(offset: -120).height(60)
+    fileprivate func prepareSutraButton() {
+        sutraButton = FlatButton(title: "Sutra", titleColor: .white)
+        sutraButton.pulseColor = .white
+        sutraButton.addTarget(self, action: #selector(sutraAction), for: .touchUpInside)
+        view.layout(sutraButton).horizontally().centerVertically(offset: -120).height(60)
     }
     
     fileprivate func prepareMeditationButton() {
@@ -64,7 +64,7 @@ extension LeftMenu {
         (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: SoundsViewController(), completion: closeNavigationDrawer)
     }
     
-    func homeAction() {
+    func sutraAction() {
         (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: HomeVC(), completion: closeNavigationDrawer)
     }
     
