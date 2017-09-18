@@ -1,3 +1,4 @@
+
 //
 //  DatabaseManager.swift
 //  RenovatioS
@@ -16,6 +17,7 @@ class DatabaseManager: NSObject {
     static let shared: DatabaseManager? = DatabaseManager()
     
     private override init() {
+        Database.database().isPersistenceEnabled = true
         ref = Database.database().reference()
     }
     
@@ -42,6 +44,25 @@ class DatabaseManager: NSObject {
             }
         }
     }
-
+    
+    func getObjectRef(path: String) -> DatabaseReference {
+        return ref.child(path)
+    }
+    
+    func getStorageRef() -> StorageReference {
+        return Storage.storage().reference()
+    }
+    
+    func getImageURLFor(path: String, success: @escaping (URL) -> Void) {
+        let imageRef = Storage.storage().reference().child(path)
+        imageRef.downloadURL { (url, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                success(url!)
+            }
+        }
+    }
+    
     
 }

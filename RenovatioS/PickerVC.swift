@@ -32,7 +32,7 @@ class PickerVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        GlobalVariables.index = row
+        //GlobalVariables.index = row
     }
     
     

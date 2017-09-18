@@ -8,17 +8,21 @@
 
 import Foundation
 import Material
+import AlamofireImage
 
 class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     var frontView = UIImageView()
     var backView = UIView()
     var titleLabel: UILabel = UILabel()
     var textView: UILabel = UILabel()
+    var allObjects: [SutraObject] = [SutraObject]()
+    var index = 0
     private let dataBaseManager = DatabaseManager.shared
     private var showingBack = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getObjects()
         prepareFrontView()
         prepareBackView()
         prepareSwipeLeft()
@@ -32,12 +36,25 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: Prepare Methods
     
+    func getObjects() {
+        guard let sutraRef = dataBaseManager?.getObjectRef(path: "pics") else {return}
+        sutraRef.observe(.childAdded, with: { (snapshot) -> Void in
+            let object = SutraObject(snapshot: snapshot)!
+            self.allObjects.append(object)
+        })
+    }
+
     func prepareFrontView() {
         frontView = UIImageView(frame: view.frame)
         frontView.contentMode = .scaleAspectFill
-        let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]
-        frontView.image = UIImage(named: sutraName)
+        frontView.image = UIImage(named: "FrontPage")
         view.layout(frontView).left().right().top().bottom()
+    }
+    
+    func updateView(object: SutraObject){
+        frontView.image = UIImage(named: object.title)
+        titleLabel.text = object.title
+        textView.attributedText = object.detailText?.HTMLTooAttributedString
     }
     
     func prepareBackView() {
@@ -49,18 +66,13 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         backView.layout(textView).top(80).left(10).right(10)
     }
     
-    func updateBackText() {
-        titleLabel.text = GlobalVariables.SutraNames[GlobalVariables.index]
-        textView.attributedText = RSarray[GlobalVariables.index].HTMLTooAttributedString
-    }
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     func pickerpix () {
         // This is used on returning from the Picker PopOver to select the new Sutra Image
-        let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]
+        let sutraName: String = GlobalVariables.SutraNames[index]
         frontView.image = UIImage(named: sutraName)
     }
     
@@ -101,33 +113,21 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     // MARK: Actions
     
     func leftSwipeAction() {
-        GlobalVariables.index = (GlobalVariables.index < GlobalVariables.SutraNames.count-1) ? GlobalVariables.index+1 : 0
-        let newSutraName:String = GlobalVariables.SutraNames[GlobalVariables.index]
-        guard let NewSutraPix = UIImage(named: newSutraName) else {
-            assertionFailure("No Image Found")
-            return
-        }
+        index = (index < allObjects.count-1) ? index+1 : 0
         
         UIView.transition(with: self.frontView,
                           duration: 0.5,
                           options: .transitionCrossDissolve,
-                          animations: { self.frontView.image = NewSutraPix},
+                          animations: { self.updateView(object: self.allObjects[self.index])},
                           completion: nil)
     }
     
     func RightSwipeAction() {
-        
-        GlobalVariables.index = (GlobalVariables.index > 0) ? GlobalVariables.index-1 : GlobalVariables.SutraNames.count-1
-        let newSutraName = GlobalVariables.SutraNames[GlobalVariables.index]
-        guard let NewSutraPix = UIImage(named: newSutraName) else {
-            assertionFailure("No Image Found")
-            return
-        }
-        
+        index = (index > 0) ? index-1 : allObjects.count-1
         UIView.transition(with: self.frontView,
                           duration: 0.5,
                           options: .transitionCrossDissolve,
-                          animations: { self.frontView.image = NewSutraPix},
+                          animations: { self.updateView(object: self.allObjects[self.index])},
                           completion: nil)
     }
     
@@ -140,14 +140,13 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func swipeUPAction() {
-        let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]
-        let sutra = SutraObject(title: GlobalVariables.SutraNames[GlobalVariables.index], detailText: RSarray[GlobalVariables.index], image: UIImage(named: sutraName))
+        let sutraName: String = GlobalVariables.SutraNames[index]
+        let sutra = SutraObject(title: GlobalVariables.SutraNames[index], detailText: RSarray[index], imageURL: nil, image: UIImage(named: sutraName))
         dataBaseManager?.save(sutra: sutra)
-        print("Saved: ", sutra.title)
+        print("Saved: ", sutra.title, index)
     }
     
     func flipAction() {
-        updateBackText()
         let toView = showingBack ? frontView : backView
         let fromView = showingBack ? backView : frontView
         let trasition = showingBack ? UIViewAnimationOptions.transitionFlipFromRight : UIViewAnimationOptions.transitionFlipFromLeft

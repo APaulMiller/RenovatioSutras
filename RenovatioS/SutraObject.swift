@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import Firebase
+
 struct SutraObject {
     let title: String
     let detailText: String?
-    let image: UIImage?
+    let imageURL: String?
+    var image: UIImage?
+    private let storage = DatabaseManager.shared
     
-    init(title: String, detailText: String? = nil, image: UIImage? = nil) {
+    init(title: String, detailText: String? = nil, imageURL: String? = nil, image: UIImage? = nil) {
         self.title = title
         self.detailText = detailText
         self.image = image
+        self.imageURL = imageURL
+    }
+    
+    init?(snapshot: DataSnapshot) {
+        guard let json = snapshot.value as? [String: Any] else { return nil }
+        self.title = json["title"] as! String
+        self.detailText = json["detailText"] as? String
+        self.imageURL = json["imageURL"] as? String
+        self.image = nil
     }
 }

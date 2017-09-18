@@ -6,4 +6,5 @@ target 'RenovatioS' do
   pod 'Firebase'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
+  pod 'AlamofireImage'
 end

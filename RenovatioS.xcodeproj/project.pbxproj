@@ -18,6 +18,7 @@
 		377006BF1F64965C0052C7DD /* SutraObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006BE1F64965C0052C7DD /* SutraObject.swift */; };
 		377006C11F6496A00052C7DD /* AudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006C01F6496A00052C7DD /* AudioObject.swift */; };
 		377006C51F6499650052C7DD /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006C41F6499650052C7DD /* DatabaseManager.swift */; };
+		37F6DDF41F707DED00A79235 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F6DDF31F707DED00A79235 /* UIImageView.swift */; };
 		DA16643F1EE9124D006A1D4C /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16643E1EE9124D006A1D4C /* MoreInfo.swift */; };
 		DA1664411EE92E4D006A1D4C /* PickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1664401EE92E4D006A1D4C /* PickerVC.swift */; };
 		DA2C04541EEBEC0400CDB5E6 /* Breath RM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */; };
@@ -43,6 +44,7 @@
 		377006BE1F64965C0052C7DD /* SutraObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SutraObject.swift; sourceTree = "<group>"; };
 		377006C01F6496A00052C7DD /* AudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioObject.swift; sourceTree = "<group>"; };
 		377006C41F6499650052C7DD /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		37F6DDF31F707DED00A79235 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		B150453A93B03B6D7F4DA474 /* Pods-RenovatioS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovatioS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RenovatioS/Pods-RenovatioS.release.xcconfig"; sourceTree = "<group>"; };
 		BF657158B7923B9B668B5199 /* Pods-RenovatioS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovatioS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenovatioS/Pods-RenovatioS.debug.xcconfig"; sourceTree = "<group>"; };
 		DA16643E1EE9124D006A1D4C /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				377006AC1F6347550052C7DD /* Style.swift */,
+				37F6DDF31F707DED00A79235 /* UIImageView.swift */,
 				377006AE1F63479C0052C7DD /* UIColor.swift */,
 				37386ED31F64BA6A00EE0DBA /* String.swift */,
 			);
@@ -276,6 +279,7 @@
 				377006BF1F64965C0052C7DD /* SutraObject.swift in Sources */,
 				DAE04E4F1EE87DC5006A345B /* AppDelegate.swift in Sources */,
 				377006B11F634BD20052C7DD /* LeftMenu.swift in Sources */,
+				37F6DDF41F707DED00A79235 /* UIImageView.swift in Sources */,
 				DAE04E611EE885B8006A345B /* SutraTextVC.swift in Sources */,
 				377006BD1F6495C70052C7DD /* GlobalVariables.swift in Sources */,
 				377006AD1F6347550052C7DD /* Style.swift in Sources */,
