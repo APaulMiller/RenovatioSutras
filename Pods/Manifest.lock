@@ -1,7 +1,4 @@
 PODS:
-  - Alamofire (4.5.1)
-  - AlamofireImage (3.3.0):
-    - Alamofire (~> 4.5)
   - Firebase (4.1.1):
     - Firebase/Core (= 4.1.1)
   - Firebase/Core (4.1.1):
@@ -46,15 +43,12 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
-  - AlamofireImage
   - Firebase
   - Firebase/Database
   - Firebase/Storage
   - Material
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
   Firebase: 052c0de688fc87b414996eea13e223dd9fee3fa2
   FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
   FirebaseCore: 28def3c643989c97ea5a69ea5000f5fa9902b9fd
@@ -67,6 +61,6 @@ SPEC CHECKSUMS:
   Material: 8265a77332acfb7872a7fd0f4f2023f080d25d1f
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 61d4f4a186b9473422c5802f77b6f8773cb2005a
+PODFILE CHECKSUM: f200433a11529cb2d3898a8c6922d44a1a2ed9f7
 
 COCOAPODS: 1.2.1
