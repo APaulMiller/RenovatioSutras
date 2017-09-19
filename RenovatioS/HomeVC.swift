@@ -15,7 +15,8 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     var titleLabel: UILabel = UILabel()
     var textView: UILabel = UILabel()
     var allObjects: [SutraObject] = [SutraObject]()
-    var index = 0
+    var allImages: [String: UIImage] = [:]
+    var index: Int = 0
     private let dataBaseManager = DatabaseManager.shared
     private var showingBack = false
     
@@ -26,7 +27,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         prepareBackView()
         prepareSwipeLeft()
         prepareSwipeRight()
-        prepareSwipeDown()
+//        prepareSwipeDown()
 //        prepareSwipeUp()
         prepareTap()
         
@@ -40,6 +41,15 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         sutraRef.observe(.childAdded, with: { (snapshot) -> Void in
             let object = SutraObject(snapshot: snapshot)!
             self.allObjects.append(object)
+            if let image = self.dataBaseManager?.getImageFromLocalFile(fileURL: "\(object.title).png") {
+                self.allImages[object.title] = image
+                 print("Already here", self.allImages)
+            } else {
+                self.dataBaseManager?.downloadImageLocaly(imageName: object.title, completion: { (image) in
+                    self.allImages[object.title] = image
+                    print(self.allImages)
+                })
+            }
         })
     }
 
@@ -51,9 +61,13 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func updateView(object: SutraObject){
-        frontView.image = UIImage(named: object.title)
-        titleLabel.text = object.title
-        textView.attributedText = object.detailText?.HTMLTooAttributedString
+        if allImages[object.title] == nil {
+            leftSwipeAction()
+        } else {
+            frontView.image = allImages[object.title]
+            titleLabel.text = object.title
+            textView.attributedText = object.detailText?.HTMLTooAttributedString
+        }
     }
     
     func prepareBackView() {
@@ -89,12 +103,12 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         view.addGestureRecognizer(rightGesture)
     }
     
-    func prepareSwipeDown() {
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownAction))
-        swipeDown.direction = .down
-        swipeDown.delegate = self
-        view.addGestureRecognizer(swipeDown)
-    }
+//    func prepareSwipeDown() {
+//        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownAction))
+//        swipeDown.direction = .down
+//        swipeDown.delegate = self
+//        view.addGestureRecognizer(swipeDown)
+//    }
     
 //    func prepareSwipeUp() {
 //        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeUPAction))
@@ -120,7 +134,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
                           animations: { self.updateView(object: self.allObjects[self.index])},
                           completion: nil)
     }
-    
+
     func RightSwipeAction() {
         index = (index > 0) ? index-1 : allObjects.count-1
         UIView.transition(with: self.frontView,
@@ -130,22 +144,23 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
                           completion: nil)
     }
     
-    func swipeDownAction() {
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PickerVC
-        self.addChildViewController(popOverVC)
-        popOverVC.view.frame = self.view.frame
-        self.view.addSubview(popOverVC.view)
-        popOverVC.didMove(toParentViewController: self)
-    }
+//    func swipeDownAction() {
+//        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PickerVC
+//        self.addChildViewController(popOverVC)
+//        popOverVC.view.frame = self.view.frame
+//        self.view.addSubview(popOverVC.view)
+//        popOverVC.didMove(toParentViewController: self)
+//    }
     
 //    func swipeUPAction() {
-//        let sutraName: String = GlobalVariables.SutraNames[index]
-//        let sutra = SutraObject(title: GlobalVariables.SutraNames[index], detailText: RSarray[index], imageURL: nil, image: UIImage(named: sutraName))
+//        let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]
+//        let sutra = SutraObject(title: GlobalVariables.SutraNames[GlobalVariables.index], detailText: RSarray[GlobalVariables.index], imageURL: nil, image: UIImage(named: sutraName), index: GlobalVariables.index)
 //        dataBaseManager?.save(sutra: sutra)
 //        print("Saved: ", sutra.title, index)
 //    }
     
     func flipAction() {
+        if allObjects[index].detailText == nil { return }
         let toView = showingBack ? frontView : backView
         let fromView = showingBack ? backView : frontView
         let trasition = showingBack ? UIViewAnimationOptions.transitionFlipFromRight : UIViewAnimationOptions.transitionFlipFromLeft
