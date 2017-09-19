@@ -9,9 +9,9 @@
 import UIKit
 
 extension UIImageView {
-    func setRemoteImage(imageURL: URL?) {
-        if let url = imageURL {
-            self.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.global(qos: .userInitiated), imageTransition: UIImageView.ImageTransition.noTransition, runImageTransitionIfCached: true, completion: nil)
-        }
-    }
+//    func setRemoteImage(imageURL: URL?) {
+//        if let url = imageURL {
+//            self.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.global(qos: .userInitiated), imageTransition: UIImageView.ImageTransition.noTransition, runImageTransitionIfCached: true, completion: nil)
+//        }
+//    }
 }

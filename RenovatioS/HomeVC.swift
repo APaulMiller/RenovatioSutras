@@ -8,7 +8,6 @@
 
 import Foundation
 import Material
-import AlamofireImage
 
 class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     var frontView = UIImageView()
