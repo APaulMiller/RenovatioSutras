@@ -41,8 +41,6 @@ class PickerVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         self.removeAnimate()
     }
     
-    
-    
     func showAnimate() {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.view.alpha = 0.0;

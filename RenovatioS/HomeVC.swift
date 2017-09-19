@@ -28,7 +28,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         prepareSwipeLeft()
         prepareSwipeRight()
         prepareSwipeDown()
-        prepareSwipeUp()
+//        prepareSwipeUp()
         prepareTap()
         
         NotificationCenter.default.addObserver(self, selector: #selector(pickerpix), name: Notification.Name("pickerused"), object: nil)
@@ -72,8 +72,8 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     func pickerpix () {
         // This is used on returning from the Picker PopOver to select the new Sutra Image
-        let sutraName: String = GlobalVariables.SutraNames[index]
-        frontView.image = UIImage(named: sutraName)
+//        let sutraName: String = GlobalVariables.SutraNames[index]
+//        frontView.image = UIImage(named: sutraName)
     }
     
     func prepareSwipeLeft() {
@@ -97,12 +97,12 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         view.addGestureRecognizer(swipeDown)
     }
     
-    func prepareSwipeUp() {
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeUPAction))
-        swipeUp.direction = .up
-        swipeUp.delegate = self
-        view.addGestureRecognizer(swipeUp)
-    }
+//    func prepareSwipeUp() {
+//        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeUPAction))
+//        swipeUp.direction = .up
+//        swipeUp.delegate = self
+//        view.addGestureRecognizer(swipeUp)
+//    }
     
     func prepareTap() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(flipAction))
@@ -139,12 +139,12 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         popOverVC.didMove(toParentViewController: self)
     }
     
-    func swipeUPAction() {
-        let sutraName: String = GlobalVariables.SutraNames[index]
-        let sutra = SutraObject(title: GlobalVariables.SutraNames[index], detailText: RSarray[index], imageURL: nil, image: UIImage(named: sutraName))
-        dataBaseManager?.save(sutra: sutra)
-        print("Saved: ", sutra.title, index)
-    }
+//    func swipeUPAction() {
+//        let sutraName: String = GlobalVariables.SutraNames[index]
+//        let sutra = SutraObject(title: GlobalVariables.SutraNames[index], detailText: RSarray[index], imageURL: nil, image: UIImage(named: sutraName))
+//        dataBaseManager?.save(sutra: sutra)
+//        print("Saved: ", sutra.title, index)
+//    }
     
     func flipAction() {
         let toView = showingBack ? frontView : backView
@@ -155,4 +155,6 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         showingBack = !showingBack
     }
 }
+
+
 
