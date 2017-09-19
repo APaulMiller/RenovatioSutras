@@ -22,6 +22,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareView()
         getObjects()
         prepareFrontView()
         prepareBackView()
@@ -35,6 +36,9 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     }
 
     // MARK: Prepare Methods
+    func prepareView() {
+        view.backgroundColor = .black
+    }
     
     func getObjects() {
         guard let sutraRef = dataBaseManager?.getObjectRef(path: "pics") else {return}
