@@ -14,6 +14,7 @@ class AppToolbarController: ToolbarController {
     
     override func prepare() {
         super.prepare()
+        isMotionEnabled = true
         displayStyle = .full
         prepareMenuButton()
         prepareStatusBar()
@@ -36,6 +37,8 @@ extension AppToolbarController {
     fileprivate func prepareStatusBar() {
         // Access the statusBar.
         statusBar.backgroundColor = UIColor.clear
+        statusBar.isHidden = true
+        statusBarStyle = .lightContent
     }
     
     func prepareToolbar() {

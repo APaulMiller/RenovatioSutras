@@ -101,6 +101,6 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
 extension PhotoCollectionViewController: UICollectionViewDelegate {
     @objc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(PhotoViewController(index: indexPath.item), animated: true)
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: PhotoViewController(images: images, index: indexPath.item), completion: nil)
     }
 }

@@ -11,10 +11,9 @@ import Material
 
 class PhotoViewController: UIViewController {
     fileprivate var collectionView: CollectionView!
-    fileprivate let dataBaseManager = DatabaseManager.shared
-    var allObjects: [SutraObject] = [SutraObject]()
-    var dataSourceItems = [DataSourceItem]()
     
+    var dataSourceItems = [DataSourceItem]()
+    fileprivate var images = [UIImage]()
     fileprivate var fabButton: FABButton!
     
     fileprivate var index: Int
@@ -24,7 +23,8 @@ class PhotoViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    public init(index: Int) {
+    public init(images: [UIImage], index: Int) {
+        self.images = images
         self.index = index
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,22 +45,10 @@ class PhotoViewController: UIViewController {
 }
 
 extension PhotoViewController {
-    
     fileprivate func preparePhotos() {
-        guard let sutraRef = dataBaseManager?.getObjectRef(path: "pics") else {return}
-        sutraRef.observe(.childAdded, with: { (snapshot) -> Void in
-            let object = SutraObject(snapshot: snapshot)!
-            self.allObjects.append(object)
-            if let image = self.dataBaseManager?.getImageFromLocalFile(fileURL: "\(object.title).png") {
-                self.dataSourceItems.append(DataSourceItem(data: image, width: self.view.bounds.width))
-            } else {
-                self.dataBaseManager?.downloadImageLocaly(imageName: object.title, completion: { (image) in
-                    if let image = image {
-                        self.dataSourceItems.append(DataSourceItem(data: image, width: self.view.bounds.width))
-                    }
-                })
-            }
-        })
+        images.forEach { [weak self, w = view.bounds.width] in
+            self?.dataSourceItems.append(DataSourceItem(data: $0, width: w))
+        }
     }
     
     fileprivate func prepareFABButton() {
@@ -88,6 +76,7 @@ extension PhotoViewController {
     }
     
     fileprivate func prepareNavigationBar() {
+    
     }
 }
 
@@ -110,7 +99,7 @@ extension PhotoViewController: CollectionViewDataSource {
         }
         
         cell.imageView.image = image
-        cell.imageView.motionIdentifier = allObjects[indexPath.item].title
+        cell.imageView.motionIdentifier = "photo_\(indexPath.item)"
         
         return cell
     }
