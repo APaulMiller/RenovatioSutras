@@ -76,6 +76,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     func prepareBackView() {
         backView = UIView(frame: view.frame)
+        backView.backgroundColor = .white
         titleLabel.textAlignment = .center
         titleLabel.font = RobotoFont.regular(with: 22)
         textView.numberOfLines = 0
@@ -130,6 +131,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     // MARK: Actions
     
     func leftSwipeAction() {
+        if allObjects.count > 1 {
         index = (index < allObjects.count-1) ? index+1 : 0
         
         UIView.transition(with: self.frontView,
@@ -137,15 +139,18 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
                           options: .transitionCrossDissolve,
                           animations: { self.updateView(object: self.allObjects[self.index])},
                           completion: nil)
+        }
     }
 
     func RightSwipeAction() {
+        if allObjects.count > 1 {
         index = (index > 0) ? index-1 : allObjects.count-1
         UIView.transition(with: self.frontView,
                           duration: 0.5,
                           options: .transitionCrossDissolve,
                           animations: { self.updateView(object: self.allObjects[self.index])},
                           completion: nil)
+        }
     }
     
 //    func swipeDownAction() {
