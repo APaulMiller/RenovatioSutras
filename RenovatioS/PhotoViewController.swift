@@ -11,10 +11,12 @@ import Material
 
 class PhotoViewController: UIViewController, UIGestureRecognizerDelegate {
     fileprivate var collectionView: CollectionView!
-    
+    fileprivate let dataBaseManager = DatabaseManager.shared
     var dataSourceItems = [DataSourceItem]()
     fileprivate var images = [UIImage]()
     fileprivate var fabButton: FABButton!
+    var allObjects: [SutraObject] = [SutraObject]()
+    private var showingBack = false
     
     fileprivate var index: Int
     
@@ -29,19 +31,28 @@ class PhotoViewController: UIViewController, UIGestureRecognizerDelegate {
         super.init(nibName: nil, bundle: nil)
     }
     
+    public init() {
+        self.index = 0
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
+        if self.images.count == 0 {
+            self.images = [#imageLiteral(resourceName: "FrontPage")]
+            getObjects()
+        }
+        view.backgroundColor = .black
         preparePhotos()
         prepareSwipeDown()
-//        prepareFABButton()
         prepareCollectionView()
+        view.becomeFirstResponder()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         prepareNavigationBar()
+        getObjects()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -57,6 +68,26 @@ extension PhotoViewController {
         }
     }
     
+    fileprivate func getObjects() {
+        guard let sutraRef = dataBaseManager?.getObjectRef(path: "pics") else {return}
+        sutraRef.observe(.childAdded, with: { (snapshot) -> Void in
+            let object = SutraObject(snapshot: snapshot)!
+            self.allObjects.append(object)
+            if let image = self.dataBaseManager?.getImageFromLocalFile(fileURL: "\(object.title).png") {
+                self.images.append(image)
+                self.collectionView.reloadData()
+                return
+            } else {
+                self.dataBaseManager?.downloadImageLocaly(imageName: object.title, completion: { (image) in
+                    if let image = image {
+                        self.images.append(image)
+                        self.collectionView.reloadData()
+                    }
+                })
+            }
+        })
+    }
+    
     func prepareSwipeDown() {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownAction))
         swipeDown.direction = .down
@@ -65,7 +96,7 @@ extension PhotoViewController {
     }
     
     func swipeDownAction() {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: PhotoCollectionViewController(), completion: nil)
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: PhotoCollectionViewController(images: images), completion: nil)
     }
     
     fileprivate func prepareFABButton() {
@@ -116,7 +147,6 @@ extension PhotoViewController: CollectionViewDataSource {
         }
         
         cell.imageView.image = image
-        cell.imageView.motionIdentifier = "photo_\(indexPath.item)"
         
         return cell
     }

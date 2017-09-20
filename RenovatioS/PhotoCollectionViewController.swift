@@ -13,37 +13,23 @@ class PhotoCollectionViewController: UIViewController {
     fileprivate var collectionView: UICollectionView!
     fileprivate var images = [UIImage]()
     fileprivate let dataBaseManager = DatabaseManager.shared
-    var allObjects: [SutraObject] = [SutraObject]()
     private var showingBack = false
+    
+    public init(images: [UIImage]) {
+        self.images = images
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         isMotionEnabled = true
-        view.backgroundColor = .white
-        getObjects()
+        view.backgroundColor = .black
         prepareCollectionView()
         prepareNavigationBar()
-    }
-}
-
-extension PhotoCollectionViewController {
-    func getObjects() {
-        guard let sutraRef = dataBaseManager?.getObjectRef(path: "pics") else {return}
-        sutraRef.observe(.childAdded, with: { (snapshot) -> Void in
-            let object = SutraObject(snapshot: snapshot)!
-            self.allObjects.append(object)
-            if let image = self.dataBaseManager?.getImageFromLocalFile(fileURL: "\(object.title).png") {
-                self.images.append(image)
-                self.collectionView.reloadData()
-            } else {
-                self.dataBaseManager?.downloadImageLocaly(imageName: object.title, completion: { (image) in
-                    if let image = image {
-                        self.images.append(image)
-                        self.collectionView.reloadData()
-                    }
-                })
-            }
-        })
     }
 }
 
@@ -70,9 +56,10 @@ extension PhotoCollectionViewController {
         
         collectionView.reloadData()
     }
-    
-    fileprivate func prepareNavigationBar() {
+    func prepareNavigationBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
+    
 }
 
 extension PhotoCollectionViewController: UICollectionViewDataSource {
@@ -91,7 +78,6 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
         
         cell.imageView.image = images[indexPath.item]
-        cell.imageView.motionIdentifier = allObjects[indexPath.item].title
         cell.transition(.fadeOut, .scale(0.75))
         
         return cell

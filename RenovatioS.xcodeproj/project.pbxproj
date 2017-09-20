@@ -11,6 +11,7 @@
 		374EB2F11F73055B004830E9 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374EB2F01F73055B004830E9 /* PhotoCollectionViewCell.swift */; };
 		374EB2F31F7305BB004830E9 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374EB2F21F7305BB004830E9 /* PhotoCollectionViewController.swift */; };
 		374EB2F51F7305F0004830E9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374EB2F41F7305F0004830E9 /* PhotoViewController.swift */; };
+		374EB2F71F731900004830E9 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374EB2F61F731900004830E9 /* NavigationController.swift */; };
 		377006AD1F6347550052C7DD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AC1F6347550052C7DD /* Style.swift */; };
 		377006AF1F63479C0052C7DD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AE1F63479C0052C7DD /* UIColor.swift */; };
 		377006B11F634BD20052C7DD /* LeftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B01F634BD20052C7DD /* LeftMenu.swift */; };
@@ -38,6 +39,7 @@
 		374EB2F01F73055B004830E9 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		374EB2F21F7305BB004830E9 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		374EB2F41F7305F0004830E9 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		374EB2F61F731900004830E9 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		377006AC1F6347550052C7DD /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		377006AE1F63479C0052C7DD /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		377006B01F634BD20052C7DD /* LeftMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenu.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				DAE04E521EE87DC5006A345B /* Main.storyboard */,
 				377006C41F6499650052C7DD /* DatabaseManager.swift */,
 				377006BE1F64965C0052C7DD /* SutraObject.swift */,
+				374EB2F61F731900004830E9 /* NavigationController.swift */,
 				377006C01F6496A00052C7DD /* AudioObject.swift */,
 				374EB2EF1F730536004830E9 /* picker */,
 				377006B21F634DD80052C7DD /* AppToolbarController.swift */,
@@ -295,6 +298,7 @@
 				374EB2F51F7305F0004830E9 /* PhotoViewController.swift in Sources */,
 				377006AD1F6347550052C7DD /* Style.swift in Sources */,
 				374EB2F31F7305BB004830E9 /* PhotoCollectionViewController.swift in Sources */,
+				374EB2F71F731900004830E9 /* NavigationController.swift in Sources */,
 				DA16643F1EE9124D006A1D4C /* MoreInfo.swift in Sources */,
 				37386ED41F64BA6A00EE0DBA /* String.swift in Sources */,
 				377006B91F6486860052C7DD /* SoundsViewController.swift in Sources */,

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
-        let appToolbarController = AppToolbarController(rootViewController: HomeVC())
+        let appToolbarController = AppToolbarController(rootViewController: PhotoViewController())
         let leftMenu = LeftMenu()
         let nav = NavigationDrawerController(rootViewController: appToolbarController, leftViewController: leftMenu)
         window!.rootViewController = nav

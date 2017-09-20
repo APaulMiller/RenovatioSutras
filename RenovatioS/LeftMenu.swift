@@ -66,11 +66,11 @@ extension LeftMenu {
     }
     
     func sutraAction() {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: HomeVC(), completion: closeNavigationDrawer)
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: PhotoViewController(), completion: closeNavigationDrawer)
     }
     
     func acknowledgmentsAction() {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: PhotoCollectionViewController(), completion: closeNavigationDrawer)
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: PhotoViewController(), completion: closeNavigationDrawer)
     }
     
     fileprivate func closeNavigationDrawer(result: Bool) {
