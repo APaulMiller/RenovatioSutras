@@ -9,7 +9,7 @@
 import UIKit
 import Material
 
-class PhotoViewController: UIViewController {
+class PhotoViewController: UIViewController, UIGestureRecognizerDelegate {
     fileprivate var collectionView: CollectionView!
     
     var dataSourceItems = [DataSourceItem]()
@@ -34,7 +34,8 @@ class PhotoViewController: UIViewController {
         view.backgroundColor = .white
         
         preparePhotos()
-        prepareFABButton()
+        prepareSwipeDown()
+//        prepareFABButton()
         prepareCollectionView()
     }
     
@@ -42,6 +43,11 @@ class PhotoViewController: UIViewController {
         super.viewWillAppear(animated)
         prepareNavigationBar()
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
 }
 
 extension PhotoViewController {
@@ -49,6 +55,17 @@ extension PhotoViewController {
         images.forEach { [weak self, w = view.bounds.width] in
             self?.dataSourceItems.append(DataSourceItem(data: $0, width: w))
         }
+    }
+    
+    func prepareSwipeDown() {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownAction))
+        swipeDown.direction = .down
+        swipeDown.delegate = self
+        view.addGestureRecognizer(swipeDown)
+    }
+    
+    func swipeDownAction() {
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: PhotoCollectionViewController(), completion: nil)
     }
     
     fileprivate func prepareFABButton() {
@@ -61,7 +78,7 @@ extension PhotoViewController {
     
     fileprivate func prepareCollectionView() {
         collectionView = CollectionView()
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .black
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.scrollDirection = .horizontal
@@ -70,9 +87,9 @@ extension PhotoViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         
-        view.layout(collectionView).center().width(view.bounds.width).height(350)
+        view.layout(collectionView).center().width(view.bounds.width).height(view.height)
         
-        collectionView.scrollRectToVisible(CGRect(x: view.bounds.width * CGFloat(index), y: 0, width: view.bounds.width, height: 350), animated: false)
+        collectionView.scrollRectToVisible(CGRect(x: view.bounds.width * CGFloat(index), y: 0, width: view.bounds.width, height: view.height), animated: false)
     }
     
     fileprivate func prepareNavigationBar() {

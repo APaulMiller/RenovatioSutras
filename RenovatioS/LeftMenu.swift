@@ -23,10 +23,11 @@ class LeftMenu: UIViewController {
         prepareFurtherInfoButton()
         prepareAcknowledgmentsButton()
     }
+    
 }
 
 extension LeftMenu {
-    
+
     fileprivate func prepareSutraButton() {
         sutraButton = FlatButton(title: "Sutra", titleColor: .white)
         sutraButton.pulseColor = .white

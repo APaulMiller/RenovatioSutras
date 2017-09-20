@@ -37,8 +37,6 @@ extension AppToolbarController {
     fileprivate func prepareStatusBar() {
         // Access the statusBar.
         statusBar.backgroundColor = UIColor.clear
-        statusBar.isHidden = true
-        statusBarStyle = .lightContent
     }
     
     func prepareToolbar() {
