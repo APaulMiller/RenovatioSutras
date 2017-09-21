@@ -13,8 +13,8 @@ import UIKit
 
 class DatabaseManager: NSObject {
     var ref: DatabaseReference!
-    
-    static let shared: DatabaseManager? = DatabaseManager()
+    static let shared: DatabaseManager! = DatabaseManager()
+    fileprivate var allObjects: [SutraObject] = [SutraObject]()
     
     private override init() {
         Database.database().isPersistenceEnabled = true
@@ -30,7 +30,7 @@ class DatabaseManager: NSObject {
         })
     }
     
-    func uploadImageToFirebase(image: UIImage?, fileName: String, completion: @escaping (_ url: String?) -> Void) {
+    fileprivate func uploadImageToFirebase(image: UIImage?, fileName: String, completion: @escaping (_ url: String?) -> Void) {
         guard let image = image, let imageData = UIImagePNGRepresentation(image) else { return }
         
         let storageRef = Storage.storage().reference().child("pics").child(fileName)
@@ -45,15 +45,40 @@ class DatabaseManager: NSObject {
         }
     }
     
-    func getObjectRef(path: String) -> DatabaseReference {
+    func getAllObject() -> [SutraObject] {
+        return allObjects
+    }
+    
+    fileprivate func getObjectRef(path: String) -> DatabaseReference {
         return ref.child(path)
     }
     
-    func getStorageRef() -> StorageReference {
+    func fetchObjects() {
+        let sutraRef = getObjectRef(path: "pics")
+        sutraRef.observe(.childAdded, with: { (snapshot) -> Void in
+            self.allObjects.append(self.getImageFor(object: SutraObject(snapshot: snapshot)!))
+            NotificationCenter.default.post(name: Notification.Name("newImages"), object: self)
+        })
+    }
+    
+    fileprivate func getImageFor(object: SutraObject)-> SutraObject {
+        var newObject = object
+        if let image = self.getImageFromLocalFile(fileURL: "\(object.title).png") {
+            newObject.image = image
+        } else {
+            self.downloadImageLocaly(imageName: object.title, completion: { (image) in
+                newObject.image = image
+                self.allObjects.append(object)
+            })
+        }
+        return newObject
+    }
+    
+    fileprivate func getStorageRef() -> StorageReference {
         return Storage.storage().reference()
     }
     
-    func getImageURLFor(path: String, success: @escaping (URL) -> Void) {
+    fileprivate func getImageURLFor(path: String, success: @escaping (URL) -> Void) {
         let imageRef = Storage.storage().reference().child(path)
         imageRef.downloadURL { (url, error) in
             if let error = error {
@@ -64,7 +89,7 @@ class DatabaseManager: NSObject {
         }
     }
     
-    func downloadImageLocaly(imageName: String, completion: @escaping (UIImage?) -> Void) {
+    fileprivate func downloadImageLocaly(imageName: String, completion: @escaping (UIImage?) -> Void) {
         let storageRef = getStorageRef()
         let imageRef = storageRef.child("pics").child(imageName)
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -79,7 +104,7 @@ class DatabaseManager: NSObject {
         }
     }
     
-    func getImageFromLocalFile(fileURL: String?) -> UIImage? {
+    fileprivate func getImageFromLocalFile(fileURL: String?) -> UIImage? {
         guard let fileURL = fileURL else { return nil }
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let filePath = documentsURL.appendingPathComponent(fileURL).path
