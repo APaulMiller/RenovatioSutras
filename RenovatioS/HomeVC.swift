@@ -59,11 +59,12 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     func prepareBackView() {
         backView = UIView(frame: view.frame)
+        backView.backgroundColor = .white
         titleLabel.textAlignment = .center
         titleLabel.font = RobotoFont.regular(with: 22)
         textView.numberOfLines = 0
-        backView.layout(titleLabel).top(22).height(40).centerHorizontally()
-        backView.layout(textView).top(80).left(10).right(10)
+        backView.layout(titleLabel).top(26).height(40).centerHorizontally()
+        backView.layout(textView).top(80).left(15).right(15)
     }
     
     override var prefersStatusBarHidden: Bool {
