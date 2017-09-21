@@ -28,7 +28,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         prepareSwipeLeft()
         prepareSwipeRight()
 //        prepareSwipeDown()
-//        prepareSwipeUp()
+        prepareSwipeUp()
         prepareTap()
         NotificationCenter.default.addObserver(self, selector: #selector(getObjects), name: Notification.Name("newImages"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pickerpix), name: Notification.Name("pickerused"), object: nil)
@@ -41,13 +41,12 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     func getObjects() {
         allObjects = (dataBaseManager?.getAllObject())!
-        print(allObjects)
     }
 
     func prepareFrontView() {
         frontView = UIImageView(frame: view.frame)
         frontView.contentMode = .scaleAspectFill
-        frontView.image = UIImage(named: "FrontPage")
+        frontView.image = #imageLiteral(resourceName: "aFrontPage")
         view.layout(frontView).left().right().top().bottom()
     }
     
@@ -98,12 +97,12 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
 //        view.addGestureRecognizer(swipeDown)
 //    }
     
-//    func prepareSwipeUp() {
-//        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeUPAction))
-//        swipeUp.direction = .up
-//        swipeUp.delegate = self
-//        view.addGestureRecognizer(swipeUp)
-//    }
+    func prepareSwipeUp() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeUPAction))
+        swipeUp.direction = .up
+        swipeUp.delegate = self
+        view.addGestureRecognizer(swipeUp)
+    }
     
     func prepareTap() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(flipAction))
@@ -144,12 +143,11 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
 //        popOverVC.didMove(toParentViewController: self)
 //    }
     
-//    func swipeUPAction() {
-//        let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]
-//        let sutra = SutraObject(title: GlobalVariables.SutraNames[GlobalVariables.index], detailText: RSarray[GlobalVariables.index], imageURL: nil, image: UIImage(named: sutraName), index: GlobalVariables.index)
-//        dataBaseManager?.save(sutra: sutra)
-//        print("Saved: ", sutra.title, index)
-//    }
+    func swipeUPAction() {
+        let sutra = SutraObject(title: "A Front Page", detailText: nil, imageURL: "", image: #imageLiteral(resourceName: "aFrontPage"), index: 0)
+        dataBaseManager?.save(sutra: sutra)
+        print("Saved: ", sutra.title, index)
+    }
     
     func flipAction() {
         if allObjects[index].detailText == nil { return }

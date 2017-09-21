@@ -70,7 +70,7 @@ extension LeftMenu {
     }
     
     func acknowledgmentsAction() {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: PhotoViewController(), completion: closeNavigationDrawer)
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: HomeVC(), completion: closeNavigationDrawer)
     }
     
     fileprivate func closeNavigationDrawer(result: Bool) {

@@ -57,7 +57,6 @@ class DatabaseManager: NSObject {
         let sutraRef = getObjectRef(path: "pics")
         sutraRef.observe(.childAdded, with: { (snapshot) -> Void in
             self.allObjects.append(self.getImageFor(object: SutraObject(snapshot: snapshot)!))
-            NotificationCenter.default.post(name: Notification.Name("newImages"), object: self)
         })
     }
     
@@ -65,10 +64,11 @@ class DatabaseManager: NSObject {
         var newObject = object
         if let image = self.getImageFromLocalFile(fileURL: "\(object.title).png") {
             newObject.image = image
+            NotificationCenter.default.post(name: Notification.Name("newImages"), object: self)
         } else {
             self.downloadImageLocaly(imageName: object.title, completion: { (image) in
                 newObject.image = image
-                self.allObjects.append(object)
+                NotificationCenter.default.post(name: Notification.Name("newImages"), object: self)
             })
         }
         return newObject

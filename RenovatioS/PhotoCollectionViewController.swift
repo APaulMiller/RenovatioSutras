@@ -11,12 +11,13 @@ import Material
 
 class PhotoCollectionViewController: UIViewController {
     fileprivate var collectionView: UICollectionView!
-    fileprivate var images = [UIImage]()
     fileprivate let dataBaseManager = DatabaseManager.shared
+    var allObjects: [SutraObject] = [SutraObject]()
     private var showingBack = false
+    weak var delegate: SelectedImageDelegate?
     
-    public init(images: [UIImage]) {
-        self.images = images
+    public init(all: [SutraObject]) {
+        self.allObjects = all
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,6 +31,7 @@ class PhotoCollectionViewController: UIViewController {
         view.backgroundColor = .black
         prepareCollectionView()
         prepareNavigationBar()
+        delegate = PhotoViewController.shared
     }
 }
 
@@ -38,7 +40,6 @@ extension PhotoCollectionViewController {
     fileprivate func prepareCollectionView() {
         let columns: CGFloat = .phone == Device.userInterfaceIdiom ? 4 : 11
         let w: CGFloat = (view.bounds.width - columns - 1) / columns
-        
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
@@ -56,6 +57,7 @@ extension PhotoCollectionViewController {
         
         collectionView.reloadData()
     }
+    
     func prepareNavigationBar() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
@@ -70,14 +72,14 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
     
     @objc
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return allObjects.count
     }
     
     @objc
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
         
-        cell.imageView.image = images[indexPath.item]
+        cell.imageView.image = allObjects[indexPath.item].image
         cell.transition(.fadeOut, .scale(0.75))
         
         return cell
@@ -87,6 +89,14 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
 extension PhotoCollectionViewController: UICollectionViewDelegate {
     @objc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: PhotoViewController(images: images, index: indexPath.item), completion: nil)
+        self.delegate?.selected(object: allObjects[indexPath.item])
+        if let photoVC = delegate as? PhotoViewController {
+            photoVC.index = allObjects[indexPath.item].index
+        }
+        dismiss(animated: true, completion: {
+            if let photoVC = self.delegate as? PhotoViewController {
+                print(photoVC.index)
+            }
+        })
     }
 }
