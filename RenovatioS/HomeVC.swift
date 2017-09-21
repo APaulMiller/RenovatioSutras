@@ -11,7 +11,7 @@ import Material
 
 class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     var frontView = UIImageView()
-    var backView = UIView()
+    var backView = UIScrollView()
     var titleLabel: UILabel = UILabel()
     var textView: UILabel = UILabel()
     var allObjects: [SutraObject] = [SutraObject]()
@@ -41,7 +41,6 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     func getObjects() {
         allObjects = (dataBaseManager?.getAllObject())!
-        print(allObjects)
     }
 
     func prepareFrontView() {
@@ -58,13 +57,15 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func prepareBackView() {
-        backView = UIView(frame: view.frame)
+        backView = UIScrollView(frame: view.frame)
+        backView.alwaysBounceVertical = true
         backView.backgroundColor = .white
         titleLabel.textAlignment = .center
         titleLabel.font = RobotoFont.regular(with: 22)
         textView.numberOfLines = 0
+        textView.lineBreakMode = .byWordWrapping
         backView.layout(titleLabel).top(26).height(40).centerHorizontally()
-        backView.layout(textView).top(80).left(15).right(15)
+        backView.layout(textView).top(80).width(view.width - 30).centerHorizontally().bottom(20)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -132,6 +133,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func swipeDownAction() {
+        if showingBack { return }
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PickerVC
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
@@ -153,9 +155,8 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         let trasition = showingBack ? UIViewAnimationOptions.transitionFlipFromRight : UIViewAnimationOptions.transitionFlipFromLeft
         UIView.transition(from: fromView, to: toView, duration: 0.5, options: trasition, completion: nil)
         view.layout(toView).left().right().top().bottom()
+        toView.translatesAutoresizingMaskIntoConstraints = false
         showingBack = !showingBack
     }
 }
-
-
 
