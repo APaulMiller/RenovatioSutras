@@ -27,7 +27,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         prepareBackView()
         prepareSwipeLeft()
         prepareSwipeRight()
-//        prepareSwipeDown()
+        prepareSwipeDown()
 //        prepareSwipeUp()
         prepareTap()
         NotificationCenter.default.addObserver(self, selector: #selector(getObjects), name: Notification.Name("newImages"), object: nil)
@@ -71,9 +71,8 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func pickerpix () {
-        // This is used on returning from the Picker PopOver to select the new Sutra Image
-//        let sutraName: String = GlobalVariables.SutraNames[index]
-//        frontView.image = UIImage(named: sutraName)
+        self.index = GlobalVariables.index
+        updateView(object: allObjects[index])
     }
     
     func prepareSwipeLeft() {
@@ -90,12 +89,12 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         view.addGestureRecognizer(rightGesture)
     }
     
-//    func prepareSwipeDown() {
-//        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownAction))
-//        swipeDown.direction = .down
-//        swipeDown.delegate = self
-//        view.addGestureRecognizer(swipeDown)
-//    }
+    func prepareSwipeDown() {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownAction))
+        swipeDown.direction = .down
+        swipeDown.delegate = self
+        view.addGestureRecognizer(swipeDown)
+    }
     
 //    func prepareSwipeUp() {
 //        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeUPAction))
@@ -131,13 +130,13 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
                           completion: nil)
     }
     
-//    func swipeDownAction() {
-//        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PickerVC
-//        self.addChildViewController(popOverVC)
-//        popOverVC.view.frame = self.view.frame
-//        self.view.addSubview(popOverVC.view)
-//        popOverVC.didMove(toParentViewController: self)
-//    }
+    func swipeDownAction() {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PickerVC
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+    }
     
 //    func swipeUPAction() {
 //        let sutraName: String = GlobalVariables.SutraNames[GlobalVariables.index]
