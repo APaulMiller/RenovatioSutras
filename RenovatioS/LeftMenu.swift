@@ -11,13 +11,13 @@ import Material
 
 class LeftMenu: UIViewController {
     fileprivate var sutraButton: FlatButton!
-    fileprivate var foldingButton: FlatButton!
     fileprivate var meditationButton: FlatButton!
-    fileprivate var logoutButton: FlatButton!
+    fileprivate var furtherInfo: FlatButton!
+    fileprivate var acknowledgments: FlatButton!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = main
+        view.backgroundColor = Color.grey.base.withAlphaComponent(0.9)
         prepareSutraButton()
         prepareMeditationButton()
         prepareFurtherInfoButton()
@@ -32,7 +32,7 @@ extension LeftMenu {
         sutraButton = FlatButton(title: "Sutra", titleColor: .white)
         sutraButton.pulseColor = .white
         sutraButton.addTarget(self, action: #selector(sutraAction), for: .touchUpInside)
-        view.layout(sutraButton).horizontally().centerVertically(offset: -120).height(60)
+        view.layout(sutraButton).left(15).top(40)
     }
     
     fileprivate func prepareMeditationButton() {
@@ -40,21 +40,21 @@ extension LeftMenu {
         meditationButton.pulseColor = .white
         meditationButton.addTarget(self, action: #selector(meditationAction), for: .touchUpInside)
         
-        view.layout(meditationButton).horizontally().centerVertically(offset: -60).height(60)
+        view.layout(meditationButton).left(15).top(80)
     }
     
     func prepareFurtherInfoButton() {
-        logoutButton = FlatButton(title: "Further Info", titleColor: .white)
-        logoutButton.pulseColor = .white
-        logoutButton.addTarget(self, action: #selector(furtherInfoAction), for: .touchUpInside)
-        view.layout(logoutButton).horizontally().centerVertically(offset: 0).height(60)
+        furtherInfo = FlatButton(title: "Further Info", titleColor: .white)
+        furtherInfo.pulseColor = .white
+        furtherInfo.addTarget(self, action: #selector(furtherInfoAction), for: .touchUpInside)
+        view.layout(furtherInfo).left(15).top(120)
     }
     
     func prepareAcknowledgmentsButton() {
-        logoutButton = FlatButton(title: "Acknowledgments", titleColor: .white)
-        logoutButton.pulseColor = .white
-        logoutButton.addTarget(self, action: #selector(acknowledgmentsAction), for: .touchUpInside)
-        view.layout(logoutButton).horizontally().centerVertically(offset: 60).height(60)
+        acknowledgments = FlatButton(title: "Acknowledgments", titleColor: .white)
+        acknowledgments.pulseColor = .white
+        acknowledgments.addTarget(self, action: #selector(acknowledgmentsAction), for: .touchUpInside)
+        view.layout(acknowledgments).left(15).top(160)
     }
     
     func furtherInfoAction() {
