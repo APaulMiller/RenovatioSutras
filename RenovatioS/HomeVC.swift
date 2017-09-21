@@ -15,7 +15,6 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     var titleLabel: UILabel = UILabel()
     var textView: UILabel = UILabel()
     var allObjects: [SutraObject] = [SutraObject]()
-    var allImages: [String: UIImage] = [:]
     var index: Int = 0
     private let dataBaseManager = DatabaseManager.shared
     private var showingBack = false
@@ -31,7 +30,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
 //        prepareSwipeDown()
 //        prepareSwipeUp()
         prepareTap()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(getObjects), name: Notification.Name("newImages"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pickerpix), name: Notification.Name("pickerused"), object: nil)
     }
 
@@ -41,20 +40,8 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func getObjects() {
-        guard let sutraRef = dataBaseManager?.getObjectRef(path: "pics") else {return}
-        sutraRef.observe(.childAdded, with: { (snapshot) -> Void in
-            let object = SutraObject(snapshot: snapshot)!
-            self.allObjects.append(object)
-            if let image = self.dataBaseManager?.getImageFromLocalFile(fileURL: "\(object.title).png") {
-                self.allImages[object.title] = image
-                 print("Already here", self.allImages)
-            } else {
-                self.dataBaseManager?.downloadImageLocaly(imageName: object.title, completion: { (image) in
-                    self.allImages[object.title] = image
-                    print(self.allImages)
-                })
-            }
-        })
+        allObjects = (dataBaseManager?.getAllObject())!
+        print(allObjects)
     }
 
     func prepareFrontView() {
@@ -65,13 +52,9 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func updateView(object: SutraObject){
-        if allImages[object.title] == nil {
-            leftSwipeAction()
-        } else {
-            frontView.image = allImages[object.title]
-            titleLabel.text = object.title
-            textView.attributedText = object.detailText?.HTMLTooAttributedString
-        }
+        frontView.image = object.image
+        titleLabel.text = object.title
+        textView.attributedText = object.detailText?.HTMLTooAttributedString
     }
     
     func prepareBackView() {
