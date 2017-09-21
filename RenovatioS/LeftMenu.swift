@@ -17,7 +17,7 @@ class LeftMenu: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = main
+        view.backgroundColor = Color.grey.base.withAlphaComponent(0.9)
         prepareSutraButton()
         prepareMeditationButton()
         prepareFurtherInfoButton()

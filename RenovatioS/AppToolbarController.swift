@@ -27,7 +27,7 @@ class AppToolbarController: ToolbarController {
 
 extension AppToolbarController {
     fileprivate func prepareMenuButton() {
-        menuButton = IconButton(image: Icon.cm.menu?.withRenderingMode(.alwaysTemplate))
+        menuButton = IconButton(image: Icon.menu!.withRenderingMode(.alwaysTemplate))
         menuButton.tintColor = .white
         menuButton.setTitleColor(.white, for: .normal)
         menuButton.addTarget(self, action: #selector(handleMenuButton), for: .touchUpInside)
@@ -49,17 +49,13 @@ extension AppToolbarController {
 extension AppToolbarController {
     @objc
     fileprivate func handleMenuButton() {
+        navigationDrawerController?.setLeftViewWidth(width: 180, isHidden: true, animated: false)
         navigationDrawerController?.toggleLeftView()
     }
     
     @objc
     fileprivate func set(title: String) {
         toolbar.title = title
-    }
-    
-    @objc
-    func showRightView() {
-        navigationDrawerController?.toggleRightView()
     }
     
 }
