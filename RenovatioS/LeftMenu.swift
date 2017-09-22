@@ -69,7 +69,7 @@ extension LeftMenu {
     }
     
     func acknowledgmentsAction() {
-//        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: MainVC(), completion: closeNavigationDrawer)
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: TumblerViewController(), completion: closeNavigationDrawer)
     }
     
     fileprivate func closeNavigationDrawer(result: Bool) {
