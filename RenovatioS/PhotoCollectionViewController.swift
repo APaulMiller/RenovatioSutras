@@ -14,7 +14,6 @@ class PhotoCollectionViewController: UIViewController {
     fileprivate let dataBaseManager = DatabaseManager.shared
     var allObjects: [SutraObject] = [SutraObject]()
     private var showingBack = false
-    weak var delegate: SelectedImageDelegate?
     
     public init(all: [SutraObject]) {
         self.allObjects = all
@@ -31,14 +30,13 @@ class PhotoCollectionViewController: UIViewController {
         view.backgroundColor = .black
         prepareCollectionView()
         prepareNavigationBar()
-        delegate = PhotoViewController.shared
     }
 }
 
 extension PhotoCollectionViewController {
     
     fileprivate func prepareCollectionView() {
-        let columns: CGFloat = .phone == Device.userInterfaceIdiom ? 4 : 11
+        let columns: CGFloat = .phone == Device.userInterfaceIdiom ? 3 : 8
         let w: CGFloat = (view.bounds.width - columns - 1) / columns
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
@@ -61,7 +59,6 @@ extension PhotoCollectionViewController {
     func prepareNavigationBar() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
-    
 }
 
 extension PhotoCollectionViewController: UICollectionViewDataSource {
@@ -89,14 +86,8 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
 extension PhotoCollectionViewController: UICollectionViewDelegate {
     @objc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.selected(object: allObjects[indexPath.item])
-        if let photoVC = delegate as? PhotoViewController {
-            photoVC.index = allObjects[indexPath.item].index
-        }
-        dismiss(animated: true, completion: {
-            if let photoVC = self.delegate as? PhotoViewController {
-                print(photoVC.index)
-            }
-        })
+        GlobalVariables.index = indexPath.item
+        NotificationCenter.default.post(name: Notification.Name("pickerused"), object: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

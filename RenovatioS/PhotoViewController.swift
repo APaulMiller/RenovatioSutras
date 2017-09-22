@@ -15,17 +15,15 @@ class PhotoViewController: UIViewController, UIGestureRecognizerDelegate {
     fileprivate let dataBaseManager = DatabaseManager.shared
     var dataSourceItems = [DataSourceItem]()
     var allObjects: [SutraObject] = [SutraObject]()
-    private var showingBack = false
+    var backView = BackView()
+    var showingBack = false
     
-    var index: Int
     
     internal required init?(coder aDecoder: NSCoder) {
-        index = 0
         super.init(coder: aDecoder)
     }
 
     internal init() {
-        self.index = 0
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,10 +33,11 @@ class PhotoViewController: UIViewController, UIGestureRecognizerDelegate {
         view.backgroundColor = .black
         prepareSwipeDown()
         NotificationCenter.default.addObserver(self, selector: #selector(getObjects), name: Notification.Name("newImages"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(newSelectionAction), name: Notification.Name("newSelection"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(newSelectionAction), name: Notification.Name("pickerused"), object: nil)
         view.becomeFirstResponder()
         getObjects()
         collectionView.reloadData()
+     
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -46,16 +45,8 @@ class PhotoViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func newSelectionAction() {
-        collectionView.scrollRectToVisible(CGRect(x: view.bounds.width * CGFloat(index), y: 0, width: view.bounds.width, height: view.height), animated: false)
+        collectionView.scrollRectToVisible(CGRect(x: view.bounds.width * CGFloat(GlobalVariables.index), y: 0, width: view.bounds.width, height: view.height), animated: false)
         collectionView.reloadData()
-    }
-}
-
-extension PhotoViewController: SelectedImageDelegate {
-    func selected(object: SutraObject) {
-        print(object)
-        index = object.index
-        NotificationCenter.default.post(name: Notification.Name("newSelection"), object: nil)
     }
 }
 
@@ -76,14 +67,13 @@ extension PhotoViewController {
     
     func swipeDownAction() {
         present(PhotoCollectionViewController(all: allObjects), animated: true, completion: nil)
-//        (navigationDrawerController?.rootViewController as? ToolbarController)?.navigationController?.pushViewController(PhotoCollectionViewController(all: allObjects), animated: true)
-//            .transition(to: PhotoCollectionViewController(all: allObjects), completion: nil)
     }
     
     fileprivate func prepareCollectionView() {
         collectionView = CollectionView()
         collectionView.backgroundColor = .black
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.scrollDirection = .horizontal
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
@@ -92,7 +82,7 @@ extension PhotoViewController {
         
         view.layout(collectionView).center().width(view.bounds.width).height(view.height)
         
-        collectionView.scrollRectToVisible(CGRect(x: view.bounds.width * CGFloat(index), y: 0, width: view.bounds.width, height: view.height), animated: false)
+        collectionView.scrollRectToVisible(CGRect(x: view.bounds.width * CGFloat(GlobalVariables.index), y: 0, width: view.bounds.width, height: view.height), animated: false)
     }
 }
 
@@ -123,6 +113,17 @@ extension PhotoViewController: CollectionViewDataSource {
 }
 
 extension PhotoViewController: CollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let text = allObjects[indexPath.item].detailText{
+            backView.updateTextFeilds(title: allObjects[indexPath.item].title, attributedText: text)
+            if allObjects[indexPath.item].detailText?.HTMLTooAttributedString != nil {
+                flipAction()
+            }
+        }
+    }
     
+    func flipAction() {
+        UIView.transition(from: self.view, to: backView, duration: 0.5, options: UIViewAnimationOptions.transitionFlipFromLeft, completion: nil)
+    }
 }
 

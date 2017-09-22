@@ -22,6 +22,7 @@
 		377006C11F6496A00052C7DD /* AudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006C01F6496A00052C7DD /* AudioObject.swift */; };
 		377006C51F6499650052C7DD /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006C41F6499650052C7DD /* DatabaseManager.swift */; };
 		37FDE9E61F74414300F612E9 /* SelectedImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FDE9E51F74414300F612E9 /* SelectedImageDelegate.swift */; };
+		37FDE9E81F74867E00F612E9 /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FDE9E71F74867E00F612E9 /* BackView.swift */; };
 		DA16643F1EE9124D006A1D4C /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16643E1EE9124D006A1D4C /* MoreInfo.swift */; };
 		DA1664411EE92E4D006A1D4C /* PickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1664401EE92E4D006A1D4C /* PickerVC.swift */; };
 		DA2C04541EEBEC0400CDB5E6 /* Breath RM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */; };
@@ -51,6 +52,7 @@
 		377006C01F6496A00052C7DD /* AudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioObject.swift; sourceTree = "<group>"; };
 		377006C41F6499650052C7DD /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		37FDE9E51F74414300F612E9 /* SelectedImageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageDelegate.swift; sourceTree = "<group>"; };
+		37FDE9E71F74867E00F612E9 /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackView.swift; sourceTree = "<group>"; };
 		B150453A93B03B6D7F4DA474 /* Pods-RenovatioS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovatioS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RenovatioS/Pods-RenovatioS.release.xcconfig"; sourceTree = "<group>"; };
 		BF657158B7923B9B668B5199 /* Pods-RenovatioS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovatioS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenovatioS/Pods-RenovatioS.debug.xcconfig"; sourceTree = "<group>"; };
 		DA16643E1EE9124D006A1D4C /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				374EB2F01F73055B004830E9 /* PhotoCollectionViewCell.swift */,
 				374EB2F21F7305BB004830E9 /* PhotoCollectionViewController.swift */,
 				374EB2F41F7305F0004830E9 /* PhotoViewController.swift */,
+				37FDE9E71F74867E00F612E9 /* BackView.swift */,
 				37FDE9E51F74414300F612E9 /* SelectedImageDelegate.swift */,
 			);
 			name = picker;
@@ -305,6 +308,7 @@
 				374EB2F71F731900004830E9 /* NavigationController.swift in Sources */,
 				DA16643F1EE9124D006A1D4C /* MoreInfo.swift in Sources */,
 				37386ED41F64BA6A00EE0DBA /* String.swift in Sources */,
+				37FDE9E81F74867E00F612E9 /* BackView.swift in Sources */,
 				377006B91F6486860052C7DD /* SoundsViewController.swift in Sources */,
 				377006AF1F63479C0052C7DD /* UIColor.swift in Sources */,
 			);
