@@ -32,6 +32,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         prepareTap()
         NotificationCenter.default.addObserver(self, selector: #selector(getObjects), name: Notification.Name("newImages"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pickerpix), name: Notification.Name("pickerused"), object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(reloadCard), name: Notification.Name("newData"), object: nil)
     }
 
     // MARK: Prepare Methods
@@ -40,7 +41,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func getObjects() {
-        allObjects = (dataBaseManager?.getAllObject())!
+        allObjects = (dataBaseManager?.getAllObject())!.sorted{$0.title < $1.title}
     }
 
     func prepareFrontView() {
@@ -54,6 +55,11 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         frontView.image = object.image
         titleLabel.text = object.title
         textView.attributedText = object.detailText?.HTMLTooAttributedString
+    }
+
+    func reloadCard() {
+        getObjects()
+        updateView(object: allObjects[index])
     }
     
     func prepareBackView() {
