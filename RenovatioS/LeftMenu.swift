@@ -5,6 +5,7 @@
 //  Created by Dan Leonard on 9/8/17.
 //  Copyright © 2017 TPOYP. All rights reserved.
 //
+// This is the Drawer that slides out from the left. The main component for navigating to different sections of the app. Follow the steps to add items to the list
 
 import Foundation
 import Material
@@ -14,65 +15,84 @@ class LeftMenu: UIViewController {
     fileprivate var meditationButton: FlatButton!
     fileprivate var furtherInfo: FlatButton!
     fileprivate var acknowledgments: FlatButton!
+    fileprivate var table: TableView = TableView()
+    
+    //MARK: Step 1
+    // When you want to add another option to the menu just add the Title of it here
+    fileprivate var options = ["Sutra", "Meditation", "Further Info", "Acknowledgments"]
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.grey.base.withAlphaComponent(0.9)
-        prepareSutraButton()
-        prepareMeditationButton()
-        prepareFurtherInfoButton()
-        prepareAcknowledgmentsButton()
+        prepareTable()
     }
 }
 
+//MARK: - TableView Methods
+extension LeftMenu: UITableViewDelegate, UITableViewDataSource {
+    func prepareTable() {
+        table = TableView(frame: self.view.frame)
+        view = table
+        table.delegate = self
+        table.backgroundColor = Color.grey.base.withAlphaComponent(0.9)
+        table.dataSource = self
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return options.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = options[indexPath.row]
+        cell.textLabel?.textColor = white
+        cell.backgroundColor = .clear
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let option = options[indexPath.row]
+        switch option {
+        case "Sutra":
+            sutraAction()
+        case "Meditation":
+            meditationAction()
+        case "Further Info":
+            furtherInfoAction()
+        case "Acknowledgments":
+            acknowledgmentsAction()
+            //MARK: Step 2
+        //Add the title here as a case for this switch statement.
+            //MARK: Step 4
+            // Add a call to the `Action` method created in step 3
+        default:
+            assertionFailure("The Option: \(options[indexPath.row]) Does not have an `Action` defined for it. Please define an action and add it to this switch statement")
+        }
+    }
+}
+
+//MARK: - Action methods
 extension LeftMenu {
     
-    fileprivate func prepareSutraButton() {
-        sutraButton = FlatButton(title: "Sutra", titleColor: .white)
-        sutraButton.pulseColor = .white
-        sutraButton.addTarget(self, action: #selector(sutraAction), for: .touchUpInside)
-        view.layout(sutraButton).left(15).top(40)
-    }
-    
-    fileprivate func prepareMeditationButton() {
-        meditationButton = FlatButton(title: "Meditation", titleColor: .white)
-        meditationButton.pulseColor = .white
-        meditationButton.addTarget(self, action: #selector(meditationAction), for: .touchUpInside)
-        
-        view.layout(meditationButton).left(15).top(80)
-    }
-    
-    func prepareFurtherInfoButton() {
-        furtherInfo = FlatButton(title: "Further Info", titleColor: .white)
-        furtherInfo.pulseColor = .white
-        furtherInfo.addTarget(self, action: #selector(furtherInfoAction), for: .touchUpInside)
-        view.layout(furtherInfo).left(15).top(120)
-    }
-    
-    func prepareAcknowledgmentsButton() {
-        acknowledgments = FlatButton(title: "Acknowledgments", titleColor: .white)
-        acknowledgments.pulseColor = .white
-        acknowledgments.addTarget(self, action: #selector(acknowledgmentsAction), for: .touchUpInside)
-        view.layout(acknowledgments).left(15).top(160)
-    }
-    
-    func furtherInfoAction() {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: MoreInfo(), completion: closeNavigationDrawer)
-    }
-    
-    func meditationAction() {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: SoundsViewController(), completion: closeNavigationDrawer)
+    fileprivate func closeNavigationDrawer(result: Bool) {
+        navigationDrawerController?.closeLeftView()
     }
     
     func sutraAction() {
         (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: HomeVC(), completion: closeNavigationDrawer)
     }
     
+    func meditationAction() {
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: SoundsViewController(), completion: closeNavigationDrawer)
+    }
+    
+    func furtherInfoAction() {
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: MoreInfo(), completion: closeNavigationDrawer)
+    }
+    
     func acknowledgmentsAction() {
         (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: TumblerViewController(), completion: closeNavigationDrawer)
     }
-    
-    fileprivate func closeNavigationDrawer(result: Bool) {
-        navigationDrawerController?.closeLeftView()
-    }
+    //MARK: Step 3
+    // Add a new `Action` method like the ones above for transitioning to the view the new option would like to navigate to.
 }
