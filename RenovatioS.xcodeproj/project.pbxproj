@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		372409161F758FE000B19312 /* TumblerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372409151F758FE000B19312 /* TumblerViewController.swift */; };
 		37386ED41F64BA6A00EE0DBA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37386ED31F64BA6A00EE0DBA /* String.swift */; };
+		37566C291F7D83D200647235 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37566C281F7D83D200647235 /* VideoPlayerViewController.swift */; };
+		37566C2C1F7D8DC900647235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37566C2B1F7D8DC900647235 /* Assets.xcassets */; };
+		37566C2D1F7D91BF00647235 /* starWarsDirectoryVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 37566C2A1F7D84B900647235 /* starWarsDirectoryVideo.mov */; };
+		37566C2E1F7D91C300647235 /* video.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 37F0DA281F7D768E00E6A1FE /* video.m4v */; };
 		377006AD1F6347550052C7DD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AC1F6347550052C7DD /* Style.swift */; };
 		377006AF1F63479C0052C7DD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AE1F63479C0052C7DD /* UIColor.swift */; };
 		377006B11F634BD20052C7DD /* LeftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B01F634BD20052C7DD /* LeftMenu.swift */; };
@@ -24,7 +28,6 @@
 		DAC4E9B91F6C742C00461FD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC4E9B81F6C742C00461FD3 /* GoogleService-Info.plist */; };
 		DAE04E4F1EE87DC5006A345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */; };
 		DAE04E541EE87DC5006A345B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E521EE87DC5006A345B /* Main.storyboard */; };
-		DAE04E561EE87DC5006A345B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E551EE87DC5006A345B /* Assets.xcassets */; };
 		DAE04E591EE87DC5006A345B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E571EE87DC5006A345B /* LaunchScreen.storyboard */; };
 		DAE04E611EE885B8006A345B /* SutraTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E601EE885B8006A345B /* SutraTextVC.swift */; };
 		FB4DC9F5DC18F2C56B2C7AD9 /* Pods_RenovatioS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372A52EB20D7693C1166B42E /* Pods_RenovatioS.framework */; };
@@ -34,6 +37,9 @@
 		372409151F758FE000B19312 /* TumblerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerViewController.swift; sourceTree = "<group>"; };
 		372A52EB20D7693C1166B42E /* Pods_RenovatioS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenovatioS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37386ED31F64BA6A00EE0DBA /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		37566C281F7D83D200647235 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		37566C2A1F7D84B900647235 /* starWarsDirectoryVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = starWarsDirectoryVideo.mov; sourceTree = "<group>"; };
+		37566C2B1F7D8DC900647235 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		377006AC1F6347550052C7DD /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		377006AE1F63479C0052C7DD /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		377006B01F634BD20052C7DD /* LeftMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenu.swift; sourceTree = "<group>"; };
@@ -43,6 +49,7 @@
 		377006BE1F64965C0052C7DD /* SutraObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SutraObject.swift; sourceTree = "<group>"; };
 		377006C01F6496A00052C7DD /* AudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioObject.swift; sourceTree = "<group>"; };
 		377006C41F6499650052C7DD /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		37F0DA281F7D768E00E6A1FE /* video.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.m4v; path = RenovatioS/video.m4v; sourceTree = SOURCE_ROOT; };
 		B150453A93B03B6D7F4DA474 /* Pods-RenovatioS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovatioS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RenovatioS/Pods-RenovatioS.release.xcconfig"; sourceTree = "<group>"; };
 		BF657158B7923B9B668B5199 /* Pods-RenovatioS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovatioS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenovatioS/Pods-RenovatioS.debug.xcconfig"; sourceTree = "<group>"; };
 		DA16643E1EE9124D006A1D4C /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
@@ -52,7 +59,6 @@
 		DAE04E4B1EE87DC5006A345B /* RenovatioS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenovatioS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE04E531EE87DC5006A345B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DAE04E551EE87DC5006A345B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAE04E581EE87DC5006A345B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAE04E5A1EE87DC5006A345B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAE04E601EE885B8006A345B /* SutraTextVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SutraTextVC.swift; sourceTree = "<group>"; };
@@ -131,8 +137,11 @@
 				DA16643E1EE9124D006A1D4C /* MoreInfo.swift */,
 				372409151F758FE000B19312 /* TumblerViewController.swift */,
 				377006B81F6486860052C7DD /* SoundsViewController.swift */,
+				37566C281F7D83D200647235 /* VideoPlayerViewController.swift */,
 				DAE04E601EE885B8006A345B /* SutraTextVC.swift */,
-				DAE04E551EE87DC5006A345B /* Assets.xcassets */,
+				37566C2A1F7D84B900647235 /* starWarsDirectoryVideo.mov */,
+				37566C2B1F7D8DC900647235 /* Assets.xcassets */,
+				37F0DA281F7D768E00E6A1FE /* video.m4v */,
 				DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */,
 				DAE04E571EE87DC5006A345B /* LaunchScreen.storyboard */,
 				DAE04E5A1EE87DC5006A345B /* Info.plist */,
@@ -176,7 +185,7 @@
 				TargetAttributes = {
 					DAE04E4A1EE87DC5006A345B = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = M8KJHPW4HY;
+						DevelopmentTeam = 23A3RV3GPB;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -206,10 +215,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA2C04541EEBEC0400CDB5E6 /* Breath RM.mp3 in Resources */,
+				37566C2D1F7D91BF00647235 /* starWarsDirectoryVideo.mov in Resources */,
 				DAE04E591EE87DC5006A345B /* LaunchScreen.storyboard in Resources */,
-				DAE04E561EE87DC5006A345B /* Assets.xcassets in Resources */,
 				DAE04E541EE87DC5006A345B /* Main.storyboard in Resources */,
 				DAC4E9B91F6C742C00461FD3 /* GoogleService-Info.plist in Resources */,
+				37566C2E1F7D91C300647235 /* video.m4v in Resources */,
+				37566C2C1F7D8DC900647235 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				372409161F758FE000B19312 /* TumblerViewController.swift in Sources */,
+				37566C291F7D83D200647235 /* VideoPlayerViewController.swift in Sources */,
 				377006C11F6496A00052C7DD /* AudioObject.swift in Sources */,
 				377006B31F634DD80052C7DD /* AppToolbarController.swift in Sources */,
 				DA1664411EE92E4D006A1D4C /* PickerVC.swift in Sources */,
@@ -411,7 +423,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = M8KJHPW4HY;
+				DEVELOPMENT_TEAM = 23A3RV3GPB;
 				INFOPLIST_FILE = RenovatioS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TPOYP.RenovatioS;
@@ -428,7 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = M8KJHPW4HY;
+				DEVELOPMENT_TEAM = 23A3RV3GPB;
 				INFOPLIST_FILE = RenovatioS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TPOYP.RenovatioS;
