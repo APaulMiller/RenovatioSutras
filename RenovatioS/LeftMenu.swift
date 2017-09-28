@@ -11,14 +11,10 @@ import Foundation
 import Material
 
 class LeftMenu: UIViewController {
-    fileprivate var sutraButton: FlatButton!
-    fileprivate var meditationButton: FlatButton!
-    fileprivate var furtherInfo: FlatButton!
-    fileprivate var acknowledgments: FlatButton!
     fileprivate var table: TableView = TableView()
     
     //MARK: Step 1
-    // When you want to add another option to the menu just add the Title of it here
+    // When you want to add another option to the menu by adding its title here
     fileprivate var options = ["Sutra", "Meditation", "Further Info", "Acknowledgments"]
     
     open override func viewDidLoad() {

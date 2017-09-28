@@ -12,7 +12,6 @@ import AVKit
 import Material
 
 class SoundsViewController: UIViewController {
-    //Step 1 add Title
     fileprivate var cells: [String] = []
     fileprivate var table: TableView = TableView()
     fileprivate var player: AVAudioPlayer = AVAudioPlayer()
