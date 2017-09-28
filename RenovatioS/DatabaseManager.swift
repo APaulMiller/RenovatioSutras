@@ -14,7 +14,7 @@ import UIKit
 class DatabaseManager: NSObject {
     var ref: DatabaseReference!
     static let shared: DatabaseManager! = DatabaseManager()
-    fileprivate var allObjects: [SutraObject] = [SutraObject]()
+    fileprivate var allObjects: [String: SutraObject] = [:]
     
     private override init() {
         Database.database().isPersistenceEnabled = true
@@ -46,7 +46,7 @@ class DatabaseManager: NSObject {
     }
     
     func getAllObject() -> [SutraObject] {
-        return allObjects
+        return allObjects.flatMap{ $0.value }
     }
     
     fileprivate func getObjectRef(path: String) -> DatabaseReference {
@@ -56,10 +56,23 @@ class DatabaseManager: NSObject {
     func fetchObjects() {
         let sutraRef = getObjectRef(path: "pics")
         sutraRef.observe(.childAdded, with: { (snapshot) -> Void in
-            self.allObjects.append(self.getImageFor(object: SutraObject(snapshot: snapshot)!))
+            self.allObjects[SutraObject(snapshot: snapshot)!.title] = self.getImageFor(object: SutraObject(snapshot: snapshot)!)
+            //self.allObjects.append(self.getImageFor(object: SutraObject(snapshot: snapshot)!))
             NotificationCenter.default.post(name: Notification.Name("newImages"), object: self)
         })
+        sutraRef.observe(.childChanged, with: { (snap) -> Void in
+            self.allObjects[SutraObject(snapshot: snap)!.title] = self.getImageFor(object: SutraObject(snapshot: snap)!)
+            NotificationCenter.default.post(name: Notification.Name("newData"), object: nil)
+        })
     }
+    
+//    func obseverChanges() {
+//        let sutraRef = getObjectRef(path: "pics")
+//        sutraRef.observe(.childChanged, with: { (snap) -> Void in
+//            self.allObjects[SutraObject(snapshot: snap)!.title] = self.getImageFor(object: SutraObject(snapshot: snap)!)
+//            NotificationCenter.default.post(name: Notification.Name("newData"), object: nil)
+//        })
+//    }
     
     fileprivate func getImageFor(object: SutraObject)-> SutraObject {
         var newObject = object
@@ -68,7 +81,7 @@ class DatabaseManager: NSObject {
         } else {
             self.downloadImageLocaly(imageName: object.title, completion: { (image) in
                 newObject.image = image
-                self.allObjects.append(object)
+                self.allObjects[object.title] = object
             })
         }
         return newObject

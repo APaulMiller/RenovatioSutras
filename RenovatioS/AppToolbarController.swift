@@ -4,7 +4,7 @@
 //
 //  Created by Dan Leonard on 9/8/17.
 //  Copyright © 2017 TPOYP. All rights reserved.
-//
+//  This is the toobar on top of the app Which houses the Menu Button that controls the navigation throught the app. This is where you style that Toobar.
 
 import UIKit
 import Material

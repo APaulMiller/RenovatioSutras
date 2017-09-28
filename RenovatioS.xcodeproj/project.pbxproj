@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		372409161F758FE000B19312 /* TumblerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372409151F758FE000B19312 /* TumblerViewController.swift */; };
 		37386ED41F64BA6A00EE0DBA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37386ED31F64BA6A00EE0DBA /* String.swift */; };
 		377006AD1F6347550052C7DD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AC1F6347550052C7DD /* Style.swift */; };
 		377006AF1F63479C0052C7DD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AE1F63479C0052C7DD /* UIColor.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		372409151F758FE000B19312 /* TumblerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerViewController.swift; sourceTree = "<group>"; };
 		372A52EB20D7693C1166B42E /* Pods_RenovatioS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenovatioS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37386ED31F64BA6A00EE0DBA /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		377006AC1F6347550052C7DD /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				DA1664401EE92E4D006A1D4C /* PickerVC.swift */,
 				377006AB1F6347430052C7DD /* Utilities */,
 				DA16643E1EE9124D006A1D4C /* MoreInfo.swift */,
+				372409151F758FE000B19312 /* TumblerViewController.swift */,
 				377006B81F6486860052C7DD /* SoundsViewController.swift */,
 				DAE04E601EE885B8006A345B /* SutraTextVC.swift */,
 				DAE04E551EE87DC5006A345B /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372409161F758FE000B19312 /* TumblerViewController.swift in Sources */,
 				377006C11F6496A00052C7DD /* AudioObject.swift in Sources */,
 				377006B31F634DD80052C7DD /* AppToolbarController.swift in Sources */,
 				DA1664411EE92E4D006A1D4C /* PickerVC.swift in Sources */,
