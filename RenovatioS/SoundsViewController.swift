@@ -8,57 +8,116 @@
 
 import UIKit
 import AVFoundation
+import AVKit
 import Material
 
 class SoundsViewController: UIViewController {
-    private var player: AVAudioPlayer = AVAudioPlayer()
-    private var playButton = FlatButton()
-    private var albumArt = UIImageView()
-    private var albumTitle = UILabel()
+    //Step 1 add Title
+    fileprivate var cells: [String] = []
+    fileprivate var table: TableView = TableView()
+    fileprivate var player: AVAudioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadAudio(file: "Breath RM")
-        prepareView()
-        preparePlayButton()
-    }
-
-    func prepareView() {
-        albumArt.image = #imageLiteral(resourceName: "M4IP Album cover")
-        view.layout(albumArt).top(80).left(15).width(view.width/3).height(view.width/3)
-        albumTitle.text = "Breath Meditation"
-        albumTitle.font = UIFont.systemFont(ofSize: 20)
-        albumTitle.numberOfLines = 0
-        albumTitle.textAlignment = .center
-        view.layout(albumTitle).top(90).left(view.width/3 + 25).right(10)
+        //Add file name here
+        cells = ["Breath RM", "Video"]
+        prepareTable()
     }
     
-    func preparePlayButton(){
-        playButton = FlatButton(title: "Play", titleColor: main)
-        playButton.setTitle("Pause", for: .selected)
-        playButton.setTitle("Play", for: .normal)
-        playButton.pulseColor = main
-        view.layout(playButton).top(view.width/3).left(view.width/3 + 25).right(10).height(40)
-        playButton.addTarget(self, action: #selector(playAction), for: .touchUpInside)
+    func prepareTable(){
+        table = TableView(frame: view.frame)
+        table.delegate = self
+        table.dataSource = self
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        view.layout(table).top(20).left().right().bottom()
+    }
+    
+    func preparePlayButton() -> FlatButton {
+        let button = FlatButton(title: "Play", titleColor: main)
+        button.setTitle("Pause", for: .selected)
+        button.setTitle("Play", for: .normal)
+        button.pulseColor = main
+        button.addTarget(self, action: #selector(playAction), for: .touchUpInside)
+        return button
     }
     
     func playAction() {
         if player.isPlaying {
             player.pause()
-            playButton.isSelected = false
         } else {
             player.play()
-            playButton.isSelected = true
         }
     }
     
     func loadAudio(file fileName: String) {
         do {
-            let audioPath = Bundle.main.path(forResource: fileName, ofType: "mp3")
-            try player = AVAudioPlayer (contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
+            let audioURL = Bundle.main.url(forResource: fileName, withExtension: "mp3")
+            try player = AVAudioPlayer(contentsOf: audioURL!)
         } catch {
             assertionFailure("Failed to load file")
         }
     }
     
+    func prepareVideoButton() -> FlatButton {
+        let button = FlatButton(title: "Play Video", titleColor: main)
+        button.setTitle("Pause Video", for: .selected)
+        button.setTitle("Play Video", for: .normal)
+        button.pulseColor = main
+        button.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
+        return button
+    }
+    
+    func playVideo() {
+        //Stop any Audio tracks before going to the video player.
+        if player.isPlaying {
+            player.pause()
+        }
+        present(VideoPlayerViewController(), animated: true, completion: nil)
+    }
+    
+}
+
+extension SoundsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.width/2, height: view.width/2))
+        let label = UILabel()
+        let type = cells[indexPath.row]
+        cell.selectionStyle = .none
+        cell.layout(imageView).top(80).left(15).width(view.width/3).height(view.width/3)
+        
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        cell.layout(label).top(90).left(view.width/3 + 25).right(10)
+        var button = FlatButton()
+        
+        switch type {
+        case "Breath RM":
+            imageView.image = #imageLiteral(resourceName: "M4IP Album cover")
+            label.text = "Breath Meditation"
+            loadAudio(file: "Breath RM")
+            button = preparePlayButton()
+        case "Video":
+            imageView.image = #imageLiteral(resourceName: "FrontPage")
+            label.text = "Video.m4v"
+            button = prepareVideoButton()
+            // Add new case here
+        default:
+            imageView.image = UIImage()
+            label.text = ""
+        }
+        
+        cell.layout(button).top(view.width/3).left(view.width/3 + 25).right(10).height(60)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cells.count
+    }
 }
