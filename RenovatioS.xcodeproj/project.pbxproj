@@ -25,6 +25,8 @@
 		DA16643F1EE9124D006A1D4C /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16643E1EE9124D006A1D4C /* MoreInfo.swift */; };
 		DA1664411EE92E4D006A1D4C /* PickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1664401EE92E4D006A1D4C /* PickerVC.swift */; };
 		DA2C04541EEBEC0400CDB5E6 /* Breath RM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */; };
+		DA3BCC021FACAC0E004A6139 /* BodyScanRM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA3BCC011FACAC0E004A6139 /* BodyScanRM.mp3 */; };
+		DA3BCC041FACAC31004A6139 /* CandleMeditation Sml.m4v in Resources */ = {isa = PBXBuildFile; fileRef = DA3BCC031FACAC31004A6139 /* CandleMeditation Sml.m4v */; };
 		DAC4E9B91F6C742C00461FD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC4E9B81F6C742C00461FD3 /* GoogleService-Info.plist */; };
 		DAE04E4F1EE87DC5006A345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */; };
 		DAE04E541EE87DC5006A345B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE04E521EE87DC5006A345B /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 		DA16643E1EE9124D006A1D4C /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
 		DA1664401EE92E4D006A1D4C /* PickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerVC.swift; sourceTree = "<group>"; };
 		DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Breath RM.mp3"; sourceTree = "<group>"; };
+		DA3BCC011FACAC0E004A6139 /* BodyScanRM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BodyScanRM.mp3; sourceTree = "<group>"; };
+		DA3BCC031FACAC31004A6139 /* CandleMeditation Sml.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CandleMeditation Sml.m4v"; sourceTree = "<group>"; };
 		DAC4E9B81F6C742C00461FD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DAE04E4B1EE87DC5006A345B /* RenovatioS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenovatioS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE04E4E1EE87DC5006A345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				37566C2B1F7D8DC900647235 /* Assets.xcassets */,
 				37F0DA281F7D768E00E6A1FE /* video.m4v */,
 				DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */,
+				DA3BCC011FACAC0E004A6139 /* BodyScanRM.mp3 */,
+				DA3BCC031FACAC31004A6139 /* CandleMeditation Sml.m4v */,
 				DAE04E571EE87DC5006A345B /* LaunchScreen.storyboard */,
 				DAE04E5A1EE87DC5006A345B /* Info.plist */,
 				DAC4E9B81F6C742C00461FD3 /* GoogleService-Info.plist */,
@@ -220,6 +226,8 @@
 				DAE04E541EE87DC5006A345B /* Main.storyboard in Resources */,
 				DAC4E9B91F6C742C00461FD3 /* GoogleService-Info.plist in Resources */,
 				37566C2E1F7D91C300647235 /* video.m4v in Resources */,
+				DA3BCC021FACAC0E004A6139 /* BodyScanRM.mp3 in Resources */,
+				DA3BCC041FACAC31004A6139 /* CandleMeditation Sml.m4v in Resources */,
 				37566C2C1F7D8DC900647235 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
