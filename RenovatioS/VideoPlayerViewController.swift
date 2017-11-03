@@ -12,12 +12,12 @@ import AVKit
 class VideoPlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelegate {
     
     func playVideo() {
-        if let url = Bundle.main.url(forResource: "video", withExtension: "m4v") {
+        if let url = Bundle.main.url(forResource: "CandleMeditation Sml", withExtension: "m4v") {
             player = AVPlayer(url: url)
             player?.play()
         }
         else {
-            print("Oops, something wrong when playing video.mp4")
+            print("Oops, something wrong when playing CandleMeditation.m4v")
         }
     }
     
