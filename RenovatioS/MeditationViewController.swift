@@ -20,7 +20,7 @@ class MeditationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Add file name here
-        cells = ["Breath RM", "Video"]
+        cells = ["Breath RM", "BodyScanRM", "CandleMeditation Sml"]
         prepareTable()
     }
     
@@ -99,9 +99,16 @@ extension MeditationViewController: UITableViewDataSource, UITableViewDelegate {
             label.text = "Breath Meditation"
             loadAudio(file: "Breath RM")
             button = preparePlayButton()
-        case "Video":
+            
+        case "BodyScanRM":
+            imageView.image = #imageLiteral(resourceName: "M4IP Album cover")
+            label.text = "BodyScan Meditation"
+            loadAudio(file: "BodyScanRM")
+            button = preparePlayButton()
+            
+        case "CandleMeditation Sml":
             imageView.image = #imageLiteral(resourceName: "FrontPage")
-            label.text = "Video.m4v"
+            label.text = "Candle Meditation"
             button = prepareVideoButton()
             // Add new case here
         default:

@@ -11,15 +11,11 @@ import Foundation
 import Material
 
 class LeftMenu: UIViewController {
-    fileprivate var sutraButton: FlatButton!
-    fileprivate var meditationButton: FlatButton!
-    fileprivate var furtherInfo: FlatButton!
-    fileprivate var acknowledgments: FlatButton!
     fileprivate var table: TableView = TableView()
     
     //MARK: Step 1
-    // When you want to add another option to the menu just add the Title of it here
-    fileprivate var options = ["Sutra", "Meditation", "Further Info", "Acknowledgments"]
+    // When you want to add another option to the menu by adding its title here
+    fileprivate var options = ["Sutra", "Meditation", "Further Info", "TPOYP Blog", "Acknowledgments"]
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +55,8 @@ extension LeftMenu: UITableViewDelegate, UITableViewDataSource {
             meditationAction()
         case "Further Info":
             furtherInfoAction()
+        case "TPOYP Blog":
+            tumblerViewControllerAction()
         case "Acknowledgments":
             acknowledgmentsAction()
             //MARK: Step 2
@@ -89,9 +87,11 @@ extension LeftMenu {
     func furtherInfoAction() {
         (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: MoreInfo(), completion: closeNavigationDrawer)
     }
-    
+    func tumblerViewControllerAction() {
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: tumblerViewController(), completion: closeNavigationDrawer)
+    }
     func acknowledgmentsAction() {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: TumblerViewController(), completion: closeNavigationDrawer)
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: tumblerViewController(), completion: closeNavigationDrawer)
     }
     //MARK: Step 3
     // Add a new `Action` method like the ones above for transitioning to the view the new option would like to navigate to.

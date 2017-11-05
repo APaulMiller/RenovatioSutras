@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import Material
 
-class TumblerViewController: UIViewController {
+class tumblerViewController: UIViewController {
     
     var webView: WKWebView = WKWebView()
     private let address = "https://paultpoypblog.tumblr.com/"
