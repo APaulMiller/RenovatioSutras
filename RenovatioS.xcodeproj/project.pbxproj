@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371684641FAFC0F100255F77 /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371684631FAFC0F100255F77 /* MeditationViewController.swift */; };
 		372409161F758FE000B19312 /* TumblerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372409151F758FE000B19312 /* TumblerViewController.swift */; };
 		37386ED41F64BA6A00EE0DBA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37386ED31F64BA6A00EE0DBA /* String.swift */; };
 		37566C291F7D83D200647235 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37566C281F7D83D200647235 /* VideoPlayerViewController.swift */; };
@@ -18,7 +19,6 @@
 		377006B11F634BD20052C7DD /* LeftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B01F634BD20052C7DD /* LeftMenu.swift */; };
 		377006B31F634DD80052C7DD /* AppToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B21F634DD80052C7DD /* AppToolbarController.swift */; };
 		377006B51F6355640052C7DD /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B41F6355640052C7DD /* HomeVC.swift */; };
-		377006B91F6486860052C7DD /* SoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B81F6486860052C7DD /* SoundsViewController.swift */; };
 		377006BF1F64965C0052C7DD /* SutraObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006BE1F64965C0052C7DD /* SutraObject.swift */; };
 		377006C11F6496A00052C7DD /* AudioObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006C01F6496A00052C7DD /* AudioObject.swift */; };
 		377006C51F6499650052C7DD /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006C41F6499650052C7DD /* DatabaseManager.swift */; };
@@ -34,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		371684631FAFC0F100255F77 /* MeditationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
 		372409151F758FE000B19312 /* TumblerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerViewController.swift; sourceTree = "<group>"; };
 		372A52EB20D7693C1166B42E /* Pods_RenovatioS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenovatioS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37386ED31F64BA6A00EE0DBA /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		377006B01F634BD20052C7DD /* LeftMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenu.swift; sourceTree = "<group>"; };
 		377006B21F634DD80052C7DD /* AppToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToolbarController.swift; sourceTree = "<group>"; };
 		377006B41F6355640052C7DD /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		377006B81F6486860052C7DD /* SoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsViewController.swift; sourceTree = "<group>"; };
 		377006BE1F64965C0052C7DD /* SutraObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SutraObject.swift; sourceTree = "<group>"; };
 		377006C01F6496A00052C7DD /* AudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioObject.swift; sourceTree = "<group>"; };
 		377006C41F6499650052C7DD /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -133,16 +133,16 @@
 				377006B21F634DD80052C7DD /* AppToolbarController.swift */,
 				377006B01F634BD20052C7DD /* LeftMenu.swift */,
 				DA1664401EE92E4D006A1D4C /* PickerVC.swift */,
-				377006AB1F6347430052C7DD /* Utilities */,
 				DA16643E1EE9124D006A1D4C /* MoreInfo.swift */,
 				372409151F758FE000B19312 /* TumblerViewController.swift */,
-				377006B81F6486860052C7DD /* SoundsViewController.swift */,
+				371684631FAFC0F100255F77 /* MeditationViewController.swift */,
 				37566C281F7D83D200647235 /* VideoPlayerViewController.swift */,
 				DAE04E601EE885B8006A345B /* SutraTextVC.swift */,
 				37566C2A1F7D84B900647235 /* starWarsDirectoryVideo.mov */,
 				37566C2B1F7D8DC900647235 /* Assets.xcassets */,
 				37F0DA281F7D768E00E6A1FE /* video.m4v */,
 				DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */,
+				377006AB1F6347430052C7DD /* Utilities */,
 				DAE04E571EE87DC5006A345B /* LaunchScreen.storyboard */,
 				DAE04E5A1EE87DC5006A345B /* Info.plist */,
 				DAC4E9B81F6C742C00461FD3 /* GoogleService-Info.plist */,
@@ -180,13 +180,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = TPOYP;
 				TargetAttributes = {
 					DAE04E4A1EE87DC5006A345B = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 23A3RV3GPB;
-						LastSwiftMigration = 0830;
+						DevelopmentTeam = H9KX8WA9HF;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -293,7 +293,7 @@
 				377006AD1F6347550052C7DD /* Style.swift in Sources */,
 				DA16643F1EE9124D006A1D4C /* MoreInfo.swift in Sources */,
 				37386ED41F64BA6A00EE0DBA /* String.swift in Sources */,
-				377006B91F6486860052C7DD /* SoundsViewController.swift in Sources */,
+				371684641FAFC0F100255F77 /* MeditationViewController.swift in Sources */,
 				377006AF1F63479C0052C7DD /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +330,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -338,7 +340,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
@@ -382,7 +388,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -390,7 +398,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
@@ -423,14 +435,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 23A3RV3GPB;
+				DEVELOPMENT_TEAM = H9KX8WA9HF;
 				INFOPLIST_FILE = RenovatioS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TPOYP.RenovatioS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -440,13 +453,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 23A3RV3GPB;
+				DEVELOPMENT_TEAM = H9KX8WA9HF;
 				INFOPLIST_FILE = RenovatioS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TPOYP.RenovatioS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

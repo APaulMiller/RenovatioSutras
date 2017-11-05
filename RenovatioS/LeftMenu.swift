@@ -83,7 +83,7 @@ extension LeftMenu {
     }
     
     func meditationAction() {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: SoundsViewController(), completion: closeNavigationDrawer)
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: MeditationViewController(), completion: closeNavigationDrawer)
     }
     
     func furtherInfoAction() {

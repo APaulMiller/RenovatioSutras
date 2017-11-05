@@ -47,14 +47,12 @@ extension AppToolbarController {
 }
 
 extension AppToolbarController {
-    @objc
-    fileprivate func handleMenuButton() {
+    @objc fileprivate func handleMenuButton() {
         navigationDrawerController?.setLeftViewWidth(width: 180, isHidden: true, animated: false)
         navigationDrawerController?.toggleLeftView()
     }
     
-    @objc
-    fileprivate func set(title: String) {
+    @objc fileprivate func set(title: String) {
         toolbar.title = title
     }
     

@@ -38,7 +38,7 @@ class PickerVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         GlobalVariables.index = row
     }
     
-    @IBAction func ReturnFromPopUp(_ sender: UITapGestureRecognizer) {
+    @objc @IBAction func ReturnFromPopUp(_ sender: UITapGestureRecognizer) {
         NotificationCenter.default.post(name: Notification.Name("pickerused"), object: self)
         self.removeAnimate()
     }

@@ -40,7 +40,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         view.backgroundColor = .black
     }
     
-    func getObjects() {
+    @objc func getObjects() {
         allObjects = (dataBaseManager?.getAllObject())!.sorted{$0.title < $1.title}
     }
 
@@ -57,7 +57,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         textView.attributedText = object.detailText?.HTMLTooAttributedString
     }
 
-    func reloadCard() {
+    @objc func reloadCard() {
         getObjects()
         updateView(object: allObjects[index])
     }
@@ -71,14 +71,14 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
         textView.numberOfLines = 0
         textView.lineBreakMode = .byWordWrapping
         backView.layout(titleLabel).top(26).height(40).centerHorizontally()
-        backView.layout(textView).top(80).width(view.width - 30).centerHorizontally().bottom(20)
+        backView.layout(textView).top(80).width(view.bounds.width - 30).centerHorizontally().bottom(20)
     }
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
-    func pickerpix () {
+    @objc func pickerpix () {
         self.index = GlobalVariables.index
         updateView(object: allObjects[index])
     }
@@ -119,7 +119,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: Actions
     
-    func leftSwipeAction() {
+    @objc func leftSwipeAction() {
         index = (index < allObjects.count-1) ? index+1 : 0
         
         UIView.transition(with: self.frontView,
@@ -129,7 +129,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
                           completion: nil)
     }
 
-    func RightSwipeAction() {
+    @objc func RightSwipeAction() {
         index = (index > 0) ? index-1 : allObjects.count-1
         UIView.transition(with: self.frontView,
                           duration: 0.5,
@@ -138,7 +138,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
                           completion: nil)
     }
     
-    func swipeDownAction() {
+    @objc func swipeDownAction() {
         if showingBack { return }
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PickerVC
         self.addChildViewController(popOverVC)
@@ -154,7 +154,7 @@ class HomeVC: UIViewController, UIGestureRecognizerDelegate {
 //        print("Saved: ", sutra.title, index)
 //    }
     
-    func flipAction() {
+    @objc func flipAction() {
         if allObjects[index].detailText == nil { return }
         let toView = showingBack ? frontView : backView
         let fromView = showingBack ? backView : frontView

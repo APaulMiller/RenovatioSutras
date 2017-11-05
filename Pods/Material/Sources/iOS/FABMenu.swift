@@ -92,15 +92,15 @@ extension FABMenuItem {
         let interimSpace = InterimSpacePresetToValue(preset: .interimSpace6)
         
         titleLabel.sizeToFit()
-        titleLabel.width += 1.5 * interimSpace
-        titleLabel.height += interimSpace / 2
-        titleLabel.y = (height - titleLabel.height) / 2
+        titleLabel.frame.size.width += 1.5 * interimSpace
+        titleLabel.frame.size.height += interimSpace / 2
+        titleLabel.frame.origin.y = (bounds.height - titleLabel.bounds.height) / 2
         
         switch titleLabelPosition {
         case .left:
-            titleLabel.x = -titleLabel.width - interimSpace
+            titleLabel.frame.origin.x = -titleLabel.bounds.width - interimSpace
         case .right:
-            titleLabel.x = frame.width + interimSpace
+            titleLabel.frame.origin.x = frame.bounds.width + interimSpace
         }
         
         titleLabel.alpha = 0
@@ -181,6 +181,10 @@ public protocol FABMenuDelegate {
 
 @objc(FABMenu)
 open class FABMenu: View {
+    /// A flag to avoid the double tap.
+    fileprivate var shouldAvoidHitTest = false
+    
+    
     /// A reference to the SpringAnimation object.
     internal let spring = SpringAnimation()
     
@@ -438,7 +442,10 @@ extension FABMenu {
         for v in subviews {
             let p = v.convert(point, from: self)
             if v.bounds.contains(p) {
-                delegate?.fabMenu?(fabMenu: self, tappedAt: point, isOutside: false)
+                if !shouldAvoidHitTest {
+                    delegate?.fabMenu?(fabMenu: self, tappedAt: point, isOutside: false)
+                }
+                shouldAvoidHitTest = !shouldAvoidHitTest
                 return v.hitTest(p, with: event)
             }
         }

@@ -29,6 +29,7 @@
  */
 
 import UIKit
+import Motion
 
 open class Button: UIButton, Pulseable, PulseableLayer {
     /**
@@ -128,6 +129,14 @@ open class Button: UIButton, Pulseable, PulseableLayer {
         didSet {
             setTitleColor(titleColor, for: .normal)
             setTitleColor(titleColor, for: .highlighted)
+        }
+    }
+
+    /// Sets the selected titleColor for the button.
+    @IBInspectable
+    open var selectedTitleColor: UIColor? {
+        didSet {
+            setTitleColor(selectedTitleColor, for: .selected)
         }
     }
     
@@ -291,6 +300,6 @@ extension Button {
     /// Manages the layout for the visualLayer property.
     fileprivate func layoutVisualLayer() {
         visualLayer.frame = bounds
-        visualLayer.cornerRadius = cornerRadius
+        visualLayer.cornerRadius = layer.cornerRadius
     }
 }
