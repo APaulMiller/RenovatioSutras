@@ -11,6 +11,7 @@ import Material
 
 class MeditaitonCell: UITableViewCell {
     let artworkImage = UIImageView()
+    let stack = UIStackView()
     let label = UILabel()
     let button = UILabel()
     
@@ -25,9 +26,18 @@ class MeditaitonCell: UITableViewCell {
     
     func prepare() {
         selectionStyle = .none
-        prepareLabel()
         prepareImageView()
+        prepareStack()
+        prepareLabel()
         prepareButton()
+    }
+    
+    private func prepareStack() {
+        stack.axis = .vertical
+        stack.spacing = 4
+        stack.alignment = .center
+        stack.distribution = .fill
+        layout(stack).top(20).left(bounds.width/3 + 25).right(10).bottom(20)
     }
     
     private func prepareImageView() {
@@ -38,7 +48,7 @@ class MeditaitonCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 20)
         label.numberOfLines = 0
         label.textAlignment = .center
-        layout(label).top(30).left(bounds.width/3 + 25).right(10)
+        stack.addArrangedSubview(label)
     }
     
     private func prepareButton() {
@@ -46,7 +56,7 @@ class MeditaitonCell: UITableViewCell {
         button.textAlignment = .center
         button.font = RobotoFont.regular(with: 18)
         button.textColor = Color.blue.lighten1
-        layout(button).top(84).left(bounds.width/3 + 25).right(10).height(40)
+        stack.addArrangedSubview(button)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
