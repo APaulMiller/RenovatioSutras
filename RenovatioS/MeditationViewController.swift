@@ -12,24 +12,23 @@ import AVKit
 import Material
 
 class MeditationViewController: UIViewController {
-    //Step 1 add Title
-    fileprivate var cells: [String] = []
-    fileprivate var table: TableView = TableView()
-    fileprivate var player: AVAudioPlayer = AVAudioPlayer()
+    //Step 1 add file Name
+    fileprivate var cells: [String] = ["Breath RM", "BodyScanRM", "CandleMeditation Sml"]
+    fileprivate var player: AVAudioPlayer?
+    let table = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Add file name here
-        cells = ["Breath RM", "BodyScanRM", "CandleMeditation Sml"]
         prepareTable()
     }
     
-    func prepareTable(){
-        table = TableView(frame: view.frame)
+    func prepareTable() {
+        view.layout(table).top(60).left().right().bottom()
         table.delegate = self
         table.dataSource = self
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        view.layout(table).top(20).left().right().bottom()
+        table.register(MeditaitonCell.self, forCellReuseIdentifier: "cell")
+        table.reloadData()
+        table.tableFooterView = UIView()
     }
     
     func preparePlayButton() -> FlatButton {
@@ -37,86 +36,68 @@ class MeditationViewController: UIViewController {
         button.setTitle("Pause", for: .selected)
         button.setTitle("Play", for: .normal)
         button.pulseColor = main
-        button.addTarget(self, action: #selector(playAction), for: .touchUpInside)
         return button
     }
     
-    @objc func playAction() {
-        if player.isPlaying {
-            player.pause()
-        } else {
-            player.prepareToPlay()
-            player.play()
+    func playBreathAction() {
+        if player?.isPlaying ?? false {
+            player?.stop()
         }
-    }
-    
-    func loadAudio(file fileName: String) {
         do {
-            let audioURL = Bundle.main.url(forResource: fileName, withExtension: "mp3")
+            let audioURL = Bundle.main.url(forResource: "Breath RM", withExtension: "mp3")
             try player = AVAudioPlayer(contentsOf: audioURL!)
         } catch {
-            assertionFailure("Failed to load file")
+            assertionFailure("Breath RM failed to load")
         }
+        player?.prepareToPlay()
+        player?.play()
     }
     
-    func prepareVideoButton() -> FlatButton {
-        let button = FlatButton(title: "Play Video", titleColor: main)
-        button.setTitle("Pause Video", for: .selected)
-        button.setTitle("Play Video", for: .normal)
-        button.pulseColor = main
-        button.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
-        return button
+    //Step 2 add Action
+    func playBodyScanAction() {
+        if player?.isPlaying ?? false {
+            player?.stop()
+        }
+        do {
+            let audioURL = Bundle.main.url(forResource: "BodyScanRM", withExtension: "mp3")
+            try player = AVAudioPlayer(contentsOf: audioURL!)
+        } catch {
+            assertionFailure("BodyScanRM Failed to load")
+        }
+        player?.prepareToPlay()
+        player?.play()
     }
     
-    @objc func playVideo() {
-        //Stop any Audio tracks before going to the video player.
-        if player.isPlaying {
-            player.pause()
+    func playVideo() {
+        if player?.isPlaying ?? false {
+            player?.stop()
         }
+        if let thePlayer = player {
+            if thePlayer.isPlaying { thePlayer.stop() }
+        }
+        player?.stop()
         present(VideoPlayerViewController(), animated: true, completion: nil)
     }
-    
 }
-
-extension MeditationViewController: UITableViewDataSource, UITableViewDelegate {
+extension MeditationViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.bounds.width/2, height: view.bounds.width/2))
-        let label = UILabel()
-        let type = cells[indexPath.row]
-        cell.selectionStyle = .none
-        cell.layout(imageView).top(80).left(15).width(view.bounds.width/3).height(view.bounds.width/3)
-        
-        label.font = UIFont.systemFont(ofSize: 20)
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        cell.layout(label).top(90).left(view.bounds.width/3 + 25).right(10)
-        var button = FlatButton()
-        
-        switch type {
-        case "Breath RM":
-            imageView.image = #imageLiteral(resourceName: "M4IP Album cover")
-            label.text = "Breath Meditation"
-            loadAudio(file: "Breath RM")
-            button = preparePlayButton()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MeditaitonCell
+        switch indexPath.row {
+        case 0:
+            cell.label.text = "Breath Meditation"
+            cell.artworkImage.image = #imageLiteral(resourceName: "M4IP Album cover")
             
-        case "BodyScanRM":
-            imageView.image = #imageLiteral(resourceName: "M4IP Album cover")
-            label.text = "BodyScan Meditation"
-            loadAudio(file: "BodyScanRM")
-            button = preparePlayButton()
-            
-        case "CandleMeditation Sml":
-            imageView.image = #imageLiteral(resourceName: "FrontPage")
-            label.text = "Candle Meditation"
-            button = prepareVideoButton()
-            // Add new case here
+        case 1:
+            cell.artworkImage.image = #imageLiteral(resourceName: "M4IP Album cover")
+            cell.label.text = "BodyScan Meditation"
+        case 2:
+            cell.artworkImage.image = #imageLiteral(resourceName: "FrontPage")
+            cell.label.text = "Candle Meditation"
+        // Step 3: Add new case here
         default:
-            imageView.image = UIImage()
-            label.text = ""
+            cell.label.text = ""
         }
-        
-        cell.layout(button).top(view.bounds.width/3).left(view.bounds.width/3 + 25).right(10).height(60)
         
         return cell
     }
@@ -127,5 +108,26 @@ extension MeditationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if player?.isPlaying ?? false {
+            player?.stop()
+            let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.isSelected = false
+            tableView.reloadRows(at: [indexPath], with: .none)
+            return
+        }
+        switch indexPath.row {
+        case 0:
+            playBreathAction()
+        case 1:
+            playBodyScanAction()
+        case 2:
+            playVideo()
+            // Step 4: call action
+        default:
+            assertionFailure("Error this cell does not have an action attached to it. Please add one ")
+        }
     }
 }
