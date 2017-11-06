@@ -13,8 +13,6 @@
 		37386ED41F64BA6A00EE0DBA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37386ED31F64BA6A00EE0DBA /* String.swift */; };
 		37566C291F7D83D200647235 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37566C281F7D83D200647235 /* VideoPlayerViewController.swift */; };
 		37566C2C1F7D8DC900647235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37566C2B1F7D8DC900647235 /* Assets.xcassets */; };
-		37566C2D1F7D91BF00647235 /* starWarsDirectoryVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 37566C2A1F7D84B900647235 /* starWarsDirectoryVideo.mov */; };
-		37566C2E1F7D91C300647235 /* video.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 37F0DA281F7D768E00E6A1FE /* video.m4v */; };
 		377006AD1F6347550052C7DD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AC1F6347550052C7DD /* Style.swift */; };
 		377006AF1F63479C0052C7DD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006AE1F63479C0052C7DD /* UIColor.swift */; };
 		377006B11F634BD20052C7DD /* LeftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377006B01F634BD20052C7DD /* LeftMenu.swift */; };
@@ -43,7 +41,6 @@
 		372A52EB20D7693C1166B42E /* Pods_RenovatioS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenovatioS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37386ED31F64BA6A00EE0DBA /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		37566C281F7D83D200647235 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
-		37566C2A1F7D84B900647235 /* starWarsDirectoryVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = starWarsDirectoryVideo.mov; sourceTree = "<group>"; };
 		37566C2B1F7D8DC900647235 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		377006AC1F6347550052C7DD /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		377006AE1F63479C0052C7DD /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -53,7 +50,6 @@
 		377006BE1F64965C0052C7DD /* SutraObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SutraObject.swift; sourceTree = "<group>"; };
 		377006C01F6496A00052C7DD /* AudioObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioObject.swift; sourceTree = "<group>"; };
 		377006C41F6499650052C7DD /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		37F0DA281F7D768E00E6A1FE /* video.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.m4v; path = RenovatioS/video.m4v; sourceTree = SOURCE_ROOT; };
 		B150453A93B03B6D7F4DA474 /* Pods-RenovatioS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovatioS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RenovatioS/Pods-RenovatioS.release.xcconfig"; sourceTree = "<group>"; };
 		BF657158B7923B9B668B5199 /* Pods-RenovatioS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenovatioS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenovatioS/Pods-RenovatioS.debug.xcconfig"; sourceTree = "<group>"; };
 		DA16643E1EE9124D006A1D4C /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
@@ -145,9 +141,7 @@
 				371684651FAFD57500255F77 /* MeditaitonCell.swift */,
 				37566C281F7D83D200647235 /* VideoPlayerViewController.swift */,
 				DAE04E601EE885B8006A345B /* SutraTextVC.swift */,
-				37566C2A1F7D84B900647235 /* starWarsDirectoryVideo.mov */,
 				37566C2B1F7D8DC900647235 /* Assets.xcassets */,
-				37F0DA281F7D768E00E6A1FE /* video.m4v */,
 				DA2C04531EEBEC0400CDB5E6 /* Breath RM.mp3 */,
 				377006AB1F6347430052C7DD /* Utilities */,
 				DA3BCC011FACAC0E004A6139 /* BodyScanRM.mp3 */,
@@ -224,11 +218,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA2C04541EEBEC0400CDB5E6 /* Breath RM.mp3 in Resources */,
-				37566C2D1F7D91BF00647235 /* starWarsDirectoryVideo.mov in Resources */,
 				DAE04E591EE87DC5006A345B /* LaunchScreen.storyboard in Resources */,
 				DAE04E541EE87DC5006A345B /* Main.storyboard in Resources */,
 				DAC4E9B91F6C742C00461FD3 /* GoogleService-Info.plist in Resources */,
-				37566C2E1F7D91C300647235 /* video.m4v in Resources */,
 				DA3BCC021FACAC0E004A6139 /* BodyScanRM.mp3 in Resources */,
 				DA3BCC041FACAC31004A6139 /* CandleMeditation Sml.m4v in Resources */,
 				37566C2C1F7D8DC900647235 /* Assets.xcassets in Resources */,

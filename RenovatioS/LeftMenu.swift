@@ -15,7 +15,7 @@ class LeftMenu: UIViewController {
     
     //MARK: Step 1
     // When you want to add another option to the menu by adding its title here
-    fileprivate var options = ["Sutra", "Meditation", "Further Info", "TPOYP Blog", "Acknowledgments"]
+    fileprivate var options = ["Sutra", "Meditation", "Further Info", "TPOYP Blog"]
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +57,9 @@ extension LeftMenu: UITableViewDelegate, UITableViewDataSource {
             furtherInfoAction()
         case "TPOYP Blog":
             tumblerViewControllerAction()
-        case "Acknowledgments":
-            acknowledgmentsAction()
-            //MARK: Step 2
-        //Add the title here as a case for this switch statement.
-            //MARK: Step 4
+            // MARK: Step 2
+            // Add the title here as a case for this switch statement.
+            // MARK: Step 4
             // Add a call to the `Action` method created in step 3
         default:
             assertionFailure("The Option: \(options[indexPath.row]) Does not have an `Action` defined for it. Please define an action and add it to this switch statement")
@@ -87,10 +85,8 @@ extension LeftMenu {
     func furtherInfoAction() {
         (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: MoreInfo(), completion: closeNavigationDrawer)
     }
+    
     func tumblerViewControllerAction() {
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: tumblerViewController(), completion: closeNavigationDrawer)
-    }
-    func acknowledgmentsAction() {
         (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: tumblerViewController(), completion: closeNavigationDrawer)
     }
     //MARK: Step 3
